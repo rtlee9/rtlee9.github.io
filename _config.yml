@@ -52,7 +52,7 @@ url-pretty: "eightportions.com"
 # --- Misc --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "rtlee9"
+disqus: "eightportions"
 
 # Fill in your Google Analytics ID to track your website using GA
 google_analytics: "UA-78320750-1"
