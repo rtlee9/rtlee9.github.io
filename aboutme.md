@@ -3,7 +3,9 @@ layout: page
 title: About
 ---
 # About Eight Portions
-Eight Portions is a blog about risk, financial markets and assorted other topics. It seeks to take a data-driven approach to answering key questions about these topics using open source software and public data where possible. Please feel free to suggest new topics using the email link at the bottom of the page.
+Eight Portions is a blog about risk, financial markets and assorted other topics. It seeks to take a data-driven approach to answering key questions about these topics using open-source software and public data where possible.
+
+I'll be using this blog as an opportunity to learn new technical things (e.g., R, git, web basics) and to learn new things about the world (which I'll share in my posts), so please feel free to leave any comments you think would be helpful. Also, don't hesitate to suggest new topics using the email link at the bottom of the site.
 
 > Give a portion to seven, or even to eight,
 >
@@ -12,8 +14,8 @@ Eight Portions is a blog about risk, financial markets and assorted other topics
 > -- Ecclesiastes 11:2
 
 # About the author
-I am an insurance professional living and working in New York City. I am a native Californian with an academic background in economics and computer science. Prior to working in the insurance industry, I was a management consultant to financial service companies.
+I am an insurance professional living and working in New York City; I'm a native Californian with an academic background in economics and computer science. Prior to working in the insurance industry, I was a management consultant to the financial services industry.
 
-I dream of making life more efficient -- to do more with less is my ambition. I love finding the truth as revealed by numbers, logic and literature. I believe simplicity is the ultimate sophistication.
+I dream of making work and life more efficient; I love finding truth as revealed by data, logic and literature; I believe simplicity is the ultimate sophistication.
 
-In my free time, I enjoy traveling, running, skiing, surfing, longboarding, playing video games, playing guitar, playing squash, playing spikeball, programming, woodworking and spending time with family and friends.
+In my free time, I enjoy traveling, running, skiing, surfing, longboarding, playing video games, playing guitar, playing squash, playing spikeball, and learning new things.
