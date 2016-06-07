@@ -16,6 +16,6 @@ I'll be using this blog as an opportunity to learn new technical things (e.g., R
 # About the author
 I am an insurance professional living and working in New York City; I'm a native Californian with an academic background in economics and computer science. Prior to working in the insurance industry, I was a management consultant to the financial services industry.
 
-I dream of making work and life more efficient; I love finding truth as revealed by data, logic and literature; I believe simplicity is the ultimate sophistication.
+I dream of making work and life more efficient; I love finding truth as revealed by data, logic and literature; and I believe simplicity is the ultimate sophistication.
 
 In my free time, I enjoy traveling, running, skiing, surfing, longboarding, playing video games, playing guitar, playing squash, playing spikeball, and learning new things.
