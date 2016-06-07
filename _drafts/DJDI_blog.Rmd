@@ -1,0 +1,146 @@
+---
+title: "How distorted is the Dow Jones Industrial Average?"
+subtitle: "The Dow Jones Distortion Index"
+layout: post
+tags: [R, finance, index, equity]
+---
+
+This article examines the Dow Jones Industrial Average ("DJIA") along one of its key criticisms: price-weighting. It quantifies the extent to which price-weighting distorts the DJIA by creating an index to measure aggregate over/under influence for each stock relative to a market-cap-weighted index composed of the same stocks. The index averages roughly 36% over time, with sharp fluctuations in the index driven by changes in index composition and by stock splits.
+
+## Background
+
+### History
+
+The DJIA was published in 1896 as a benchmark and a barometer for the broader equity market. The market is now over 470 times larger than it was [then](http://irrationalexuberance.com/main.html?src=%2F#4,0), yet the DJIA today is composed of only 30 stocks, up from 12 stocks in 1896. In spite of its extreme simplicity, the DJIA remains one of the most widely quoted indices today. According to [Dow Jones Averages](http://www.djaverages.com/?go=industrial-overview): "...the DJIA today serves the same purpose for which it was created – to provide a clear, straightforward view of the stock market and, by extension, the U.S. economy."
+
+### Methodology
+The DJIA is calculated by summing the prices of its components and dividing the resulting sum by the _Dow Divisor_, a static multiplier created to adjust the index for [historical continuity](https://www.djaverages.com/?go=industrial-calculation). Consider a fictional market in which there are only three companies:
+
+| Company                          | Ticker | Market cap | Shares outstanding | Price per share |
+|---------------------------------|--------|------------|--------------------|-----------------|
+| Widgets, widgets, widgets, Inc. | WWW    |       $200 |                100 |           $2.00 |
+| Bank of XYZ                     | XYZ    |       $200 |                200 |           $1.00 |
+| Tech.com                        | TCH    |       $400 |                160 |           $2.50 |
+
+Say the DJIA were composed of WWW and XYZ. It would be calculated as $DJIA = \frac{\$2 + \$1}{D}$ where $D$ is the _Dow Divisor_. If the _Dow Divisor_ were 0.1 then $DJIA = \frac{\$2 + \$1}{0.1} = 30$.
+
+### Initial assessment
+If the DJIA is meant to provide a clear view of the stock market, it does so [imperfectly](https://www.washingtonpost.com/news/wonk/wp/2013/09/10/the-dow-jones-industrial-average-is-ridiculous/) in three ways, as illustrated by the 3-stock market considered above:
+
+1. __Price-weighted calculation__: WWW comprises $\frac{2}{3}$ of the index, even though XYZ is worth the same amount as WWW (both have a market cap of $200)
+1. __Limited component selection:__ It does not consider TCH, which is half of the $800 market
+1. __Transparency:__ It does not follow a clear set of rules for selecting stocks (e.g., "select the top 3,000 largest publicly held companies incorporated in the U.S. based on market capitalization")
+
+Matt Levine does a great job of summarizing these points for [Dealbreaker](http://dealbreaker.com/2013/05/sp-keeps-monopoly-on-way-to-count/):
+
+> "The Dow Jones Industrial Average is a very stupid measure of the stock market for at least two reasons, which are (1) it is an average of only 30 big stocks and (2) it is weighted by share price, an entirely arbitrary number, rather than market cap or equal weighting or anything at all sensible. Was Mr. Dow an idiot? Probably not? He was just a guy inventing indices in 1896, when computers couldn’t fit in your pocket and were pulled by horses... It is now 117 years later and nobody really uses the Dow anymore except, like, everybody, but people do use the S&P 500 index, which has the advantage that it’s a reasonable enough index of the thing it is an index of."
+
+The rest of this article will focus on criticism #1, which is that each stock's influence on the DJIA is determined solely by its [price](http://caps.fool.com/Blogs/why-the-dow-is-a-pretty-stupid/794693). This is unsettling, given the price of a stock is determined by a number of factors not directly related to the fundamentals of the underlying company; for example, stock splits influence stock price significantly without changing anything relating to the inherent value or size of the company itself.
+
+## Thought experiment: what would a market cap weighted index of the same stocks look like?
+In order to get a sense for the impact of price vs. market cap weighting, let's benchmark the DJIA against a market cap weighted index, composed of the same stocks. The light blue line in Figure 1 is what the DJIA would look like if it were weighted by market cap and the dark blue line is what the actual (price-weighted) DJIA looks like. I've also added the S&P 500 for reference (you can also click on the legend to view the Russell 2000).
+
+Discontinuity introduced by changes in index composition were treated by re-indexing to the date prior to the change (this is similar to how Dow Averages treats the actual DJIA for historical continuity, by adjusting the _Dow Divisor_). Details on data sources can be found [here](http://eightportions.com/references/DJDI_methodology).
+
+#### Figure 1: Percent gain since September, 2012
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+library(rCharts, quietly = TRUE)
+library(data.table, quietly = TRUE)
+
+data_path <- "/Volumes/HDD/DJIA/2.Data/"
+mkt_weight_ind_plt <- fread(paste0(data_path, "mkt_weight_ind_plt.csv"))
+short_long_map <- cbind(ticker = c("DJI", "DJMC", "GSPC", "RUT"), long = c("Dow Jones Industrial Average", "Market Cap weighted DJIA", "S&P 500", "Russell 2000"))
+mkt_weight_ind_plt <- merge(mkt_weight_ind_plt, short_long_map, by = "ticker")
+
+p2 <- nPlot(value_adj ~ dt_num, group = "long", data = mkt_weight_ind_plt, type = 'lineChart')
+p2$xAxis(tickFormat="#!function(d) {return d3.time.format('%b %Y')(new Date( d * 86400000 ));}!#")
+p2$yAxis(tickFormat="#!function(d) {return d3.format(',.1%')(d)}!#")
+p2$chart(tooltipContent = "#! function(key, x, y, e){ 
+        return e.point.dt_char + ' (' + key + '): ' + y
+        } !#")
+p2$chart(margin = list(right = 50))
+
+# Hide RUT by default
+ids <- unique(mkt_weight_ind_plt$long)
+rom <- as.logical(ids == 'Russell 2000')
+p2$set(disabled = rom)
+
+#p2$show('iframesrc', cdn=TRUE)
+p2$print(include_assets=TRUE)
+```
+
+There are a few interesting things going on here:
+
+1. The market-cap-weighted version of the DJIA performs significantly worse than the price-weighted DJIA - if weighted by market cap, the DJIA would have shown only a 13% gain since September 2012, whereas the actual DJIA shows a gain of 32%
+1. The performance of the price-weighted DJIA is much closer to the S&P 500, which is a far better indicator of overall market performance
+
+Taken together, these findings indicate the DJIA components are a poor reflection of what's going on in the broader market; additionally, the distortion introduced by price-weighting makes the index look like a better reflection of the market than it actually is. Two wrongs (i.e., limited stock selection and price weighting) are jammed together into one index to create something that looks nearly right.
+
+## Dow Jones Distortion Index
+In order to measure how much the price-weighting methodology distorts the DJIA, I created the DJDI index, which compares each stock's contribution to the (price-weighted) DJIA against its theoretical contribution to a market-cap-weighted index composed of the same stocks. The DJDI represents the total deviance from the market cap weighted index across all component stocks (additional details on methodology [here](http://eightportions.com/references/DJDI_methodology)). The DJDI is 0% when the DJIA is at its best and 100% when the DJIA is at its worst:
+
+* A DJDI of 0% indicates that the DJIA is market cap weighted
+* A DJDI of 100% indicates that the DJIA is measuring only things other than the stocks comprising the DJIA
+
+In Figure 2, below, we observe the DJDI changing over time due to a combination of types of events at any given point in time.
+
+1. Component selection / substitution
+1. Stock splits, or other changes in shares outstanding (e.g., buybacks, offerings)
+1. Changes in relative pricing
+
+#### Figure 2: Dow Jones Distortion Index over time
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+library(rCharts, quietly = TRUE)
+library(data.table, quietly = TRUE)
+
+data_path <- "/Volumes/HDD/DJIA/2.Data/"
+ind_daily <- as.data.table(readRDS("/Volumes/HDD/DJIA/2.Data/ind_daily.Rda"))
+setnames(ind_daily, "ind", "DJDI")
+
+p <- nPlot(DJDI ~ dt_num, data = ind_daily, type = 'lineChart')
+p$xAxis(tickFormat="#!function(d) {return d3.time.format('%b %Y')(new Date( d * 86400000 ));}!#")
+p$yAxis(tickFormat="#!function(d) {return d3.format(',.1%')(d)}!#")
+p$chart(tooltipContent = "#! function(key, x, y, e){
+        return e.point.dt_char + ': ' + y
+        } !#")
+
+p$chart(margin = list(right = 50))
+#p$show('iframesrc', cdn=TRUE)
+p$print(include_assets=TRUE)
+```
+
+There are three major shifts in the DJDI:
+
+* __September 23, 2013:__ AA, BAC and HPQ are swapped out for GS, NKE and V
+    * GS now accounts for 7% of the index by price, though it only accounts for 1.6% of the group's combined market cap
+    * V now accounts for 8% of the index by price, though it only accounts for 2.7% of the group's combined market cap
+* __March 19, 2015:__ T is swamped out for AAPL and V issues a 4:1 stock split
+    * AAPL now accounts for 4.7% of the index by price, though it accounts for 13.4% of the group's combined market cap
+    * Prior to the stock split, T accounted for 9.5% of the index by price, and only 3.3% of the group's combined market cap; after the stock split it accounts for 2.5% of the total price and 3% of the total market cap
+* __December 24, 2015:__ NKE issues 2:1 stock split; prior to the stock split, NKE accounted for 5% of the index by price, and only 2% of the group's combined market cap; after the stock split it accounts for 2.5% of the total price and 2% of the total market cap
+
+The contribution of each stock to the DJDI is shown below (the sum of contribution across all stocks is equal to the DJDI). Each of the major shifts in the DJDI described above, can be explored at an individual component stock level.
+
+#### Figure 3: Individual stock contribution to DJDI
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+library(rCharts, quietly = TRUE)
+library(data.table, quietly = TRUE)
+library(lubridate, quietly = TRUE)
+
+data_path <- "/Volumes/HDD/DJIA/2.Data/"
+plot_dt <- fread(paste0(data_path, "plot_data_all_stocks.csv"))
+
+plot_dt$DJDI_contr <- plot_dt$abs_share_diff/2
+p1 <- nPlot(DJDI_contr ~ dt_num,
+            data = plot_dt[order(date_added, -date_removed, ticker)][wday(plot_dt$date, label = TRUE) == 'Mon'],
+            group = "ticker", type = 'stackedAreaChart', id = 'all_stocks')
+p1$xAxis(tickFormat="#!function(d) {return d3.time.format('%b %Y')(new Date( d * 86400000 ));}!#")
+p1$yAxis(tickFormat="#!function(d) {return d3.format(',.1%')(d)}!#")
+p1$chart(tooltipContent = "#! function(key, x, y, e){ 
+        return e.point.dt_char + ' (' + key + '): ' + y
+        } !#")
+
+p1$chart(margin = list(right = 50))
+#p1$show('iframesrc', cdn=TRUE)
+p1$print(include_assets=TRUE)
+```
