@@ -1,60 +1,32 @@
 ---
 title: "The Dow Jones Distortion Index"
-subtitle: "Additional notes - methodology, data and examples"
+subtitle: "Index construction methodology - additional details"
 layout: post
 tags: [R, finance, index, equity]
 permalink: /references/DJDI_methodology
 ---
 
-## Methodology - Dow Jones Market Cap Average
-The Dow Jones Market Cap Average ("DJMCA") is calculated as the market-cap-weighted average unadjusted stock price across all stocks included in the DJIA at a given point in time. Discontinuity introduced by changes in index composition were treated by re-indexing to the date prior to the change -- this is similar to how Dow Averages treats the actual DJIA for historical continuity (i.e., by adjusting the _Dow Divisor_).
-
-
 ## Methodology - Dow Jones Distortion Index
-I define the Dow Jones Distortion Index ("DJDI") as half of the sum of the absolute difference between each stock's price-weighted contribution to the Dow Jones Industrial Average ("DJIA") and its market-cap-weighted contribution to the DJIA. Let $P_n$ equal the price of stock $n$ and $M_n$ equal the market capitalization of stock $n$ on any given day. The DJDI is calculated as:
+I define the Dow Jones Distortion Index ("DJDI") as half of the sum of the absolute difference between each stock's price-weighted contribution to the Dow Jones Industrial Average ("DJIA") and its market-cap-weighted contribution to the DJIA. Let $$P_n$$ equal the price of stock $$n$$ and $$M_n$$ equal the market capitalization of stock $$n$$ on any given day. The DJDI is calculated as:
 
 $$DJDI = \frac{1}{2}\sum_{n=1}^{N} |P^*_n - M^*_n|$$
 
-where $P^*_n = \frac{P_n}{\sum_{i=1}^{N} P_i}$ is the share of the sum price of the DJIA components contributed by stock $n$, $M^*_n = \frac{M_n}{\sum_{i=1}^{N} M_i}$ is the share of the sum market cap of the DJIA components contributed by stock $n$, and $N$ is the number of stocks comprising the DJIA (currently $N = 30$).
-
-### Illustrative example
-The following table illustrates how the DJDI would be calculated for the example introduced in [my original blog post](http://eightportions.com/2016-05-25-placeholder/):
-
-| Ticker |  Market cap | [M] Share of sum market cap | Price | [P] Share of sum price | [D] Absolute difference |
-|--------|-------------|-----------------------------|-------|------------------------|-------------------------|
-| WWW | $200 | 50% | $2.00 | 67% | 17% |
-| XYZ | $200 | 50% | $1.00 | 33% | 17% |
-| Total | $400 | 100% | $3.00 | 100% | 33% |
-
-For each stock component:
-
-* __[M]:__ Calculate the share of the index's sum market cap
-* __[P]:__ Calculate the share of the index's sum price
-* __[D]:__ Calculate the absolute value of the difference between __[M]__ and __[P]__
-
-The DJDI is calculated as the sum of column __[D]__. In this example, the DJDI equals 33%.
+where $$P^*_n = \frac{P_n}{\sum_{i=1}^{N} P_i}$$ is the share of the sum price of the DJIA components contributed by stock $$n$$, $$M^*_n = \frac{M_n}{\sum_{i=1}^{N} M_i}$$ is the share of the sum market cap of the DJIA components contributed by stock $$n$$, and $$N$$ is the number of stocks comprising the DJIA (currently $$N = 30$$).
 
 ### Real example: all components from May 27, 2016
-
+The following table illustrates how the DJDI is calculated, stock-by-stock, for May 27, 2016:
 ```{r kable, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-library(knitr)
-library(scales)
-library(data.table)
-library(lubridate)
+library(knitr, quietly = TRUE)
+library(scales, quietly = TRUE)
+library(data.table, quietly = TRUE)
+library(lubridate, quietly = TRUE)
 
 data_path <- "/Volumes/HDD/DJIA/2.Data/"
 mkt_cap <- fread(paste0(data_path, "DJ_mkt_cap.csv"))[date == mdy("5/27/2016")]
 mkt_cap$abs_share_diff <- abs(mkt_cap$sop - mkt_cap$som)
 
 df_short <- mkt_cap[, .(ticker, mkt_cap, som, price = price_unadj, sop, abs_share_diff)]
-total <- c(
-  "DJDI"
-  ,""
-  ,""
-  ,""
-  ,""
-  ,percent(sum(df_short[,abs_share_diff])/2)
-  )
+total <- c("DJDI", "", "", "", "", percent(sum(df_short[,abs_share_diff])/2))
 
 df_short$mkt_cap <- dollar(df_short$mkt_cap/1000)
 df_short$som <- percent(df_short$som)
@@ -68,7 +40,3 @@ df_short <- rbind(as.data.frame(df_short), total)
 
 kable(df_short, digits = 2, row.names = FALSE)
 ```
-
-
-## Data
-Historical market cap data was sourced from FactSet through the [Xignite US and Global Equity Fundamentals API](https://www.xignite.com/product/factset-fundamentals-financials). Historical unadjusted stock prices and index values were sourced from Yahoo Finance through the [quantmod API](http://www.quantmod.com/).
