@@ -27,3 +27,12 @@ for (infile in list.files("_drafts/", pattern="*.Rmd", full.names=TRUE)) {
   }
 }
 
+for (infile in list.files("_source/", pattern="*.Rmd", full.names=TRUE)) {
+  outfile = paste0("_posts/", sub(".Rmd$", ".md", basename(infile)))
+  
+  # knit only if the input file is the last one modified
+  if (!file.exists(outfile) |
+      file.info(infile)$mtime > file.info(outfile)$mtime) {
+    KnitPost(infile, outfile)
+  }
+}
