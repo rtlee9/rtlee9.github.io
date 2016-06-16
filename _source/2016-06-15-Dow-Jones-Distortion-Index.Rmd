@@ -14,7 +14,7 @@ This post examines the Dow Jones Industrial Average ("DJIA") along one of its ke
 The DJIA was published in 1896 as a benchmark and a barometer for the broader equity market. The market is now over 470 times larger than it was [then](http://irrationalexuberance.com/main.html?src=%2F#4,0), though the DJIA today is composed of only 30 stocks, up from 12 stocks in 1896. In spite of its extreme simplicity, the DJIA remains one of the most widely quoted indices today. According to [Dow Jones Averages](http://www.djaverages.com/?go=industrial-overview): "...the DJIA today serves the same purpose for which it was created – to provide a clear, straightforward view of the stock market and, by extension, the U.S. economy."
 
 ### Methodology
-The DJIA is calculated by summing the prices of its component stocks and dividing the resulting sum by the _Dow Divisor_, a static multiplier created to adjust the index for [historical continuity](https://www.djaverages.com/?go=industrial-calculation). Consider a fictional market in which there are only three companies:
+The DJIA is calculated by summing the prices of its component stocks and dividing the resulting sum by the _Dow Divisor_, a static multiplier that adjusts the index for [historical continuity](https://www.djaverages.com/?go=industrial-calculation). Consider a fictional market in which there are only three companies:
 
 | Company                          | Ticker | Market cap | Shares outstanding | Price per share |
 |---------------------------------|--------|------------|--------------------|-----------------|
@@ -31,7 +31,7 @@ If the DJIA is meant to provide a clear view of the stock market, it does so [im
     * If the price of WWW increases by 50% then the DJIA will be 40
     * If the price of XYZ increases by 50% then the DJIA will only be 35[^1]
 1. __Limited component selection:__ It does not consider TCH, which is half of the $800 market
-1. __Transparency:__ Unlike for other indices, there is no clear set of rules for selecting the index components (e.g., "select the top 3,000 largest publicly held companies incorporated in the U.S. based on market capitalization")
+1. __Transparency:__ Unlike other indices, it maintains no clear set of rules for selecting the index components (e.g., "select the top 3,000 largest publicly held companies incorporated in the U.S. based on market capitalization")
 
 Matt Levine does a great job of summarizing these points for [Dealbreaker](http://dealbreaker.com/2013/05/sp-keeps-monopoly-on-way-to-count/):
 
@@ -40,7 +40,7 @@ Matt Levine does a great job of summarizing these points for [Dealbreaker](http:
 The rest of this post focuses on criticism #1, which is that each stock's influence on the DJIA is determined solely by its [price](http://caps.fool.com/Blogs/why-the-dow-is-a-pretty-stupid/794693). This is unsettling, given the price of a stock is determined by a number of factors not directly related to the fundamentals of the underlying company; for example, stock splits influence stock price significantly without changing the inherent value or size of the company itself.
 
 ## Thought experiment: what would a cap-weighted index of the same stocks look like?
-In order to get a sense for the impact of price-weighting vs. cap-weighting[^2], let's benchmark the DJIA against a new, cap-weighted index composed of the same stocks (which I'll call the Dow Jones Market Cap Average, or _DJMCA_)[^3]. Figure 1 compares the cap-weighted DJMCA against the price-weighted DJIA and the S&P 500 (you can also click on the legend to view the cap-weighted Russell 2000). The S&P 500 includes many times more stocks than the DJIA and it is cap-weighted[^4], so it serves as an informative benchmark.
+In order to get a sense for the impact of price-weighting vs. cap-weighting[^2], let's benchmark the DJIA against a new, cap-weighted index composed of the same stocks (which I'll call the Dow Jones Market Cap Average, or _DJMCA_)[^3]. Figure 1 compares the returns of the cap-weighted DJMCA against those of the price-weighted DJIA and the S&P 500 (you can also click on the legend to view the cap-weighted Russell 2000 returns). The S&P 500 includes many times more stocks than the DJIA and it is cap-weighted[^4], so it serves as an informative benchmark.
 
 #### Figure 1: Percent gain in index value since September 2012
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
@@ -70,7 +70,7 @@ p2$set(disabled = rom)
 p2$show('iframesrc', cdn  = TRUE)
 ```
 
-The DJMCA shows lower returns than does the DJIA -- if weighted by market cap, the DJIA would have only gained 23% since September 2012, whereas the actual DJIA gained 32%. The S&P 500, meanwhile, gained 44% over the same period. The distortion introduced by price-weighting makes the index look like a better reflection of the market (i.e., closer to the S&P 500) than the underlying components would naturally indicate.
+The DJMCA shows lower returns than does the DJIA -- if weighted by market cap, the DJIA would have only gained 23% since September 2012, whereas the actual DJIA gained 32%. The S&P 500, meanwhile, gained 44% over the same period. The distortion introduced by price-weighting actually makes the index look like a better reflection of the market (i.e., closer to the S&P 500) than the underlying components would naturally indicate.
 
 Figure 1 tells us that the DJIA would look different if cap-weighted, but it doesn't tell the whole story. It requires a reference point (I anchored all indices to an arbitrary date in 2012) -- you can't look at any single day and say what the impact of price-weighting is on that day. It is also not clear from Figure 1 what specific events are driving any disparity observed. To better answer the question at hand, I introduce...
 
@@ -154,6 +154,11 @@ p1$set(width = 750, height = 500)
 
 p1$show('iframesrc', cdn  = TRUE)
 ```
+_Note: This post is best viewed in Chrome, Firefox, or Safari._
+
+-----------------------------------------------------------------------------
+
+### Footnotes
 
 [^1]: If the index were cap-weighted, then it would take the same value in either scenario; more on cap-weighting later in the post.
 [^2]: Cap-weighting indicates that the _returns_ are weighted by market cap, not the _price_. To calculate the value of a cap-weighted index, simply sum the market cap across all components and divide by some static divisor (e.g., the number of stocks).
