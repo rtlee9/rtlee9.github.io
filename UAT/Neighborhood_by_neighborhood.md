@@ -7,11 +7,23 @@ permalink: /UAT/Taxi
 ---
 
 
+
 In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I examine NYC taxi rides from a neighborhood-centric perspective through a set of superlatives that highlight the diverse nature of NYC neighborhoods, as defined by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm). This post focuses on Manhattan neighborhoods, as neighborhoods in other boroughs have relatively low volumes and differ from the average NYC trip in other fundamental ways (e.g., higher average distance traveled, low outbound:inbound ratio).
 
 This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). Plots were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html).
 
-### Top routes
+[![Create droplet]({{ site.url }}/img/Taxi_pick_by_drop.gif)]({{ site.url }}/img/Taxi_pick_by_drop.gif)
+
+## Table of contents
+
+* [Top routes](#routes)
+* [Most / least likely to pay with cash](#cash)
+* [Best / worst tippers](#tips)
+* [Furthest / shortest travelers](#distance)
+* [Party index](#party)
+* [ Most / least diverse](#diversity)
+
+### Top routes {#routes}
 Table 1 outlines the top neighborhood-to-neighborhood routes in 2014. The list is dominated by three neighborhoods: the Upper East Side, Midtown, and the Upper West Side.
 
 ##### Table 1: top routes
@@ -31,9 +43,9 @@ Table 1 outlines the top neighborhood-to-neighborhood routes in 2014. The list i
 
 Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^1]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
 
-Figure 1 shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday evenings than on weekday mornings, while the opposite is true for routes originating from Midtown.
+[Figure 1](#fig1) shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday evenings than on weekday mornings, while the opposite is true for routes originating from Midtown.
 
-##### Figure 1: top 10 routes by time of week
+##### Figure 1: top 10 routes by time of week {#fig1}
 <iframe srcdoc=' &lt;!doctype HTML&gt;
 &lt;meta charset = &#039;utf-8&#039;&gt;
 &lt;html&gt;
@@ -58,21 +70,21 @@ Figure 1 shows the same trip volumes split by time of week. It indicates that th
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart17277dc81f6&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart172d84ef75&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart17277dc81f6()
+      drawchart172d84ef75()
     });
-    function drawchart17277dc81f6(){  
+    function drawchart172d84ef75(){  
       var opts = {
- &quot;dom&quot;: &quot;chart17277dc81f6&quot;,
+ &quot;dom&quot;: &quot;chart172d84ef75&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;route&quot;,
 &quot;y&quot;: &quot;trips&quot;,
 &quot;group&quot;: &quot;tow&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart17277dc81f6&quot;
+&quot;id&quot;: &quot;chart172d84ef75&quot;
 },
         data = [
  {
@@ -414,11 +426,11 @@ Figure 1 shows the same trip volumes split by time of week. It indicates that th
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart17277dc81f6'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart172d84ef75'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 
-## Most / least likely to pay with cash
+## Most / least likely to pay with cash {#cash}
 * __Definition:__ percent of trips paid in cash
 * __Scope:__ Manhattan pickups
 * __Most likely to pay with cash__: East Harlem pickups
@@ -451,20 +463,20 @@ According to the [Urban Institute](http://www.urban.org/interactive-map-where-ar
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart17242a6d21c&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1725d6bb014&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart17242a6d21c()
+      drawchart1725d6bb014()
     });
-    function drawchart17242a6d21c(){  
+    function drawchart1725d6bb014(){  
       var opts = {
- &quot;dom&quot;: &quot;chart17242a6d21c&quot;,
+ &quot;dom&quot;: &quot;chart1725d6bb014&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Cash share of trips&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart17242a6d21c&quot;
+&quot;id&quot;: &quot;chart1725d6bb014&quot;
 },
         data = [
  {
@@ -640,13 +652,12 @@ According to the [Urban Institute](http://www.urban.org/interactive-map-where-ar
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart17242a6d21c'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1725d6bb014'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
+Card usage for NYC yellow cabs peaks during morning and evening commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and after work hours on weekdays. [Figure 3](#fig3) shows that a larger share of Harlem's pickups originate during these times, relative to the rest of Manhattan (excluding holidays). However, adjusting for the time of week would only push Harlem's cash payment rate up by 0.1%[^3], so other reasons must be driving Harlem's high cash payment rates.
 
-Card usage for NYC yellow cabs peaks during morning and evening commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and after work hours on weekdays. Figure 3 shows that a larger share of Harlem's pickups originate during these times, relative to the rest of Manhattan (excluding holidays). However, adjusting for the time of week would only push Harlem's cash payment rate up by 0.1%[^3], so other reasons must be driving Harlem's high cash payment rates.
-
-##### Figure 3: % of trips paid in cash, by time of week
+##### Figure 3: % of trips paid in cash, by time of week {#fig3}
 <iframe srcdoc=' &lt;!doctype HTML&gt;
 &lt;meta charset = &#039;utf-8&#039;&gt;
 &lt;html&gt;
@@ -671,14 +682,14 @@ Card usage for NYC yellow cabs peaks during morning and evening commuting hours;
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart17278f3abd2&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1722f788320&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script&gt;
  $(document).ready(function(){
-      drawchart17278f3abd2()
+      drawchart1722f788320()
     });
-    function drawchart17278f3abd2(){  
+    function drawchart1722f788320(){  
       var opts = {
- &quot;dom&quot;: &quot;chart17278f3abd2&quot;,
+ &quot;dom&quot;: &quot;chart1722f788320&quot;,
 &quot;width&quot;:    800,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;wday_hour&quot;,
@@ -703,7 +714,7 @@ Card usage for NYC yellow cabs peaks during morning and evening commuting hours;
 &quot;yAxis&quot;:      1
 }
 },
-&quot;id&quot;: &quot;chart17278f3abd2&quot;
+&quot;id&quot;: &quot;chart1722f788320&quot;
 },
         data = [
  {
@@ -893,7 +904,7 @@ Card usage for NYC yellow cabs peaks during morning and evening commuting hours;
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         2.0833,
 &quot;variable&quot;: &quot;% of trips paid in cash (left axis)&quot;,
-&quot;value&quot;: 0.4868476842343
+&quot;value&quot;: 0.4868476842343 
 },
 {
  &quot;dayofweek&quot;:              2,
@@ -5460,12 +5471,13 @@ Card usage for NYC yellow cabs peaks during morning and evening commuting hours;
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart17278f3abd2'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1722f788320'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 
 
-### Best / worst tippers
+
+### Best / worst tippers {#tips}
 
 * __Definition:__ average tip percentage
 * __Scope:__ Manhattan pickups paid by card[^4]
@@ -5473,6 +5485,7 @@ Card usage for NYC yellow cabs peaks during morning and evening commuting hours;
 * __Worst tippers:__ East Harlem pickups
 
 Adjusting the average Harlem tip % for [time of week](http://www.bloomberg.com/news/articles/2014-07-31/heres-how-much-you-should-be-tipping-your-cab-driver), using the same methodology as above, suggests that only 0.1 percentage points of the difference are attributable to the time-of-week distribution of rides.
+
 
 
 If you're a taxi driver, this doesn't necessarily mean you'll want to be cruising Midtown for passengers. There are a number of other factors you'd want to consider, such as total expected fare (per minute), supply density, etc. Additionally, this post doesn't assign any _reason_ for these average tips. East Harlem pickups may experience worse service on average, they could tip less on average due to [less disposable income](http://www.wnyc.org/story/174508-blog-census-locates-citys-wealthiest-and-poorest-neighborhoods/), or a host of other reasons.
@@ -5502,20 +5515,20 @@ If you're a taxi driver, this doesn't necessarily mean you'll want to be cruisin
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart172732cc9b&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1727358ec19&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart172732cc9b()
+      drawchart1727358ec19()
     });
-    function drawchart172732cc9b(){  
+    function drawchart1727358ec19(){  
       var opts = {
- &quot;dom&quot;: &quot;chart172732cc9b&quot;,
+ &quot;dom&quot;: &quot;chart1727358ec19&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Average tip %&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart172732cc9b&quot;
+&quot;id&quot;: &quot;chart1727358ec19&quot;
 },
         data = [
  {
@@ -5691,10 +5704,10 @@ If you're a taxi driver, this doesn't necessarily mean you'll want to be cruisin
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart172732cc9b'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1727358ec19'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
-### Furthest / shortest travelers
+### Furthest / shortest travelers {#distance}
 * __Definition:__ average distance traveled
 * __Scope:__ Manhattan pickups
 * __Furthest travelers__: Financial District pickups
@@ -5727,20 +5740,20 @@ Where are Financial District and Gramercy pickups going that makes their average
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart17223c50130&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1722082329&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart17223c50130()
+      drawchart1722082329()
     });
-    function drawchart17223c50130(){  
+    function drawchart1722082329(){  
       var opts = {
- &quot;dom&quot;: &quot;chart17223c50130&quot;,
+ &quot;dom&quot;: &quot;chart1722082329&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Average distance&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart17223c50130&quot;
+&quot;id&quot;: &quot;chart1722082329&quot;
 },
         data = [
  {
@@ -5916,10 +5929,10 @@ Where are Financial District and Gramercy pickups going that makes their average
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart17223c50130'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1722082329'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
-### Party index
+### Party index {#party}
 * __Definition:__ ratio of outbound to inbound trips Saturdays and Sundays before 5:00 AM
 * __Scope:__ Manhattan outbound neighborhoods, all inbound neighborhoods
 * __Biggest party neighborhood:__ Lower East Side
@@ -5937,13 +5950,13 @@ This party index identifies neighborhoods where more more trips leave a given ne
 |Greenwich Village |1.7                |419,599        |718,556        |
 
 
-### Most / least diverse
+### Most / least diverse {#diversity}
 * __Definition:__ [Shannon diversity index](http://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/shannon.htm)
 * __Scope:__ Manhattan dropoffs, all non-missing pickup locations
 * __Most diverse:__ Chinatown dropoffs
 * __Least diverse:__ Carnegie Hill dropoffs
 
-The Shannon diversity index gives weight to both the abundance and evenness of pickup neighborhoods for any given dropoff neighborhood. The top three pickup neighborhoods for Carnegie Hill dropoffs account for 71% of volume (unsurprisingly 41% is from the Upper East Side) but the top three pickup neighborhoods for Chinatown droppoffs only account for 30% of volume.
+The Shannon diversity index gives weight to both the abundance and evenness of pickup neighborhoods for any given dropoff neighborhood. The top three pickup neighborhoods for Carnegie Hill dropoffs account for 71% of its volume (unsurprisingly 41% is from the Upper East Side) but the top three pickup neighborhoods for Chinatown droppoffs only account for 30% of its volume.
 
 ##### Figure 6: Diversity of dropoffs by neighborhood
 <iframe srcdoc=' &lt;!doctype HTML&gt;
@@ -5970,20 +5983,20 @@ The Shannon diversity index gives weight to both the abundance and evenness of p
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart17261b84e63&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1725de7405b&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart17261b84e63()
+      drawchart1725de7405b()
     });
-    function drawchart17261b84e63(){  
+    function drawchart1725de7405b(){  
       var opts = {
- &quot;dom&quot;: &quot;chart17261b84e63&quot;,
+ &quot;dom&quot;: &quot;chart1725de7405b&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;drop_neigh&quot;,
 &quot;y&quot;: &quot;Shannon diversity index&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart17261b84e63&quot;
+&quot;id&quot;: &quot;chart1725de7405b&quot;
 },
         data = [
  {
@@ -6143,7 +6156,7 @@ The Shannon diversity index gives weight to both the abundance and evenness of p
 
         chart.yAxis
   .tickFormat(function(d) {return d3.format(&#039;0.0&#039;)(d)})
-  .axisLabel(&quot;Shannon diversity index&quot;)
+  .axisLabel(&quot;Shannon diversity index (diversity of pickup neighborhoods)&quot;)
 
        d3.select(&quot;#&quot; + opts.id)
         .append(&#039;svg&#039;)
@@ -6159,7 +6172,7 @@ The Shannon diversity index gives weight to both the abundance and evenness of p
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart17261b84e63'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1725de7405b'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 _Note: This post is best viewed in Chrome, Firefox, or Safari._

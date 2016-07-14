@@ -43,6 +43,8 @@ In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I exami
 
 This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). Plots were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html).
 
+[![Create droplet]({{ site.url }}/img/Taxi_pick_by_drop.gif)]({{ site.url }}/img/Taxi_pick_by_drop.gif)
+
 ## Table of contents
 
 * [Top routes](#routes)
