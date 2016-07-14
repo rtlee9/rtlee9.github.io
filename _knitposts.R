@@ -5,6 +5,7 @@
 
 # run ./knitpages.R to update all knitr files that need to be updated.
 
+setwd("/Users/Ryan/Github/rtlee9.github.io/")
 KnitPost <- function(input, outfile, base.url="/") {
   # this function is a modified version of an example here:
   # http://jfisher-usgs.github.com/r/2012/07/03/knitr-jekyll/

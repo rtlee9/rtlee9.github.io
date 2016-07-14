@@ -1,0 +1,311 @@
+---
+title: "NYC yellow cab trips"
+subtitle: "Neighborhood by neighborhood"
+layout: post
+tags: [NYC, taxi, transportation, open data, R, SQL]
+permalink: /UAT/Taxi
+---
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+# Setup
+library(RPostgreSQL, quietly = T)
+library(data.table, quietly = T)
+library(scales, quietly = T)
+library(ggmap, quietly = T)
+library(ggthemes, quietly = T)
+library(rCharts, quietly = T)
+library(knitr, quietly = T)
+library(vegan, quietly = T)
+setwd("/Users/Ryan/Github/NYC_taxi/3.Analysis/")
+
+pg = dbDriver("PostgreSQL")
+con = dbConnect(pg, password="", host="localhost", port=5432)
+neighborhood_sum <- as.data.table(dbReadTable(con, "neighborhood_sum"))
+tow_nhood_sum <- as.data.table(dbReadTable(con, "tow_nhood_sum"))
+tow_flow <- as.data.table(dbReadTable(con, "tow_flow"))
+tow_pick <- as.data.table(dbReadTable(con, "tow_pick"))
+tow_drop <- as.data.table(dbReadTable(con, "tow_drop"))
+regions <- as.data.table(dbGetQuery(con, "select city, name from zillow_sp"))
+hold <- dbDisconnect(con)
+
+manhattan_nhoods <- regions[city == 'New York City-Manhattan', .(name)]
+
+# Load maps
+map_center <- c(lon = -73.94, lat = 40.75)
+NYC <- get_googlemap(map_center, zoom = 12, size = c(500, 640))
+NYC_bw <- get_googlemap(map_center, zoom = 12, size = c(500, 640), color = "bw")
+NYC_map <- ggmap(NYC, extent = "device")
+NYC_map_bw <- ggmap(NYC_bw, extent = "device")
+
+```
+
+In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I examine NYC taxi rides from a neighborhood-centric perspective through a set of superlatives that highlight the diverse nature of NYC neighborhoods, as defined by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm). This post focuses on Manhattan neighborhoods, as neighborhoods in other boroughs have relatively low volumes and differ from the average NYC trip in other fundamental ways (e.g., higher average distance traveled, low outbound:inbound ratio).
+
+This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). Plots were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html).
+
+### Top routes
+Table 1 outlines the top neighborhood-to-neighborhood routes in 2014. The list is dominated by three neighborhoods: the Upper East Side, Midtown, and the Upper West Side.
+
+##### Table 1: top routes
+```{r kable, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+dt <- tow_nhood_sum[!is.na(pick_neigh) & !is.na(drop_neigh), .(Trips = sum(trips)), .(`Pickup neighborhood` = pick_neigh, `Dropoff neighborhood` = drop_neigh)][order(-Trips)][1:10]
+kable(dt, format.args = list(big.mark = ","), row.names = FALSE)
+
+```
+
+Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^1]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
+
+Figure 1 shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday evenings than on weekday mornings, while the opposite is true for routes originating from Midtown.
+
+##### Figure 1: top 10 routes by time of week
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+dt <- tow_nhood_sum[!is.na(pick_neigh) & !is.na(drop_neigh), .(trips_t = sum(trips)), .(route = paste(pick_neigh, '->', drop_neigh))][order(-trips_t)][1:10]
+dt_tow <- tow_nhood_sum[!is.na(pick_neigh) & !is.na(drop_neigh), .(trips = sum(trips)), .(route = paste(pick_neigh, '->', drop_neigh), weekend, tow = ifelse(
+  weekend == 'Weekday', ifelse(
+    pick_hour <= 10, "Weekday morning", ifelse(
+      pick_hour <= 15, "Weekday midday", "Weekday evening")), "Weekend"))]
+dt_plot <- merge(x = dt, y = dt_tow, by = "route")[order(-trips_t)]
+
+p1 <- nPlot(trips ~ route, group = 'tow', data = dt_plot, type = 'multiBarHorizontalChart')
+p1$yAxis(tickFormat="#!function(d) {return d3.format(',.0')(d)}!#")
+p1$yAxis(axisLabel = 'Number of trips')
+p1$set(width = 750, height = 600)
+p1$chart(stacked = T, margin = list(left = 225, right = 50))
+p1$show('iframesrc', cdn  = TRUE)
+
+```
+
+
+## Most / least likely to pay with cash
+* __Definition:__ percent of trips paid in cash
+* __Scope:__ Manhattan pickups
+* __Most likely to pay with cash__: East Harlem pickups
+* __Least likely to pay with cash__: Battery Park pickups
+
+According to the [Urban Institute](http://www.urban.org/interactive-map-where-are-unbanked-and-underbanked-new-york-city), households in Harlem are 2.15 times as likely to be unbanked as the average Manhattan household[^2]. This could be a contributing factor, but it's hard to say how much of the cash-card disparity is caused by the underlying household financials.
+
+##### Figure 2: % of trips paid in cash, by pickup neighborhood
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+csh_share <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name, .(`Cash share of trips` = sum(ifelse(payment_type == 'CSH', trips, 0))/sum(trips)), .(pick_neigh)][order(-`Cash share of trips`)]
+
+p3 <- nPlot(`Cash share of trips` ~ pick_neigh, data = csh_share, type = 'multiBarHorizontalChart')
+p3$yAxis(tickFormat="#!function(d) {return d3.format(',%')(d)}!#")
+p3$yAxis(axisLabel = '% of trips paid in cash')
+p3$set(width = 750, height = 600)
+p3$chart(stacked = T, margin = list(left = 140, right = 100), showControls = F, showLegend = F)
+p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+Card usage for NYC yellow cabs peaks during morning and evening commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and after work hours on weekdays. Figure 3 shows that a larger share of Harlem's pickups originate during these times, relative to the rest of Manhattan (excluding holidays). However, adjusting for the time of week would only push Harlem's cash payment rate up by 0.1%[^3], so other reasons must be driving Harlem's high cash payment rates.
+
+##### Figure 3: % of trips paid in cash, by time of week
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday', .(`% of trips paid in cash (left axis)` = sum(ifelse(payment_type == 'CSH', trips, 0))/sum(trips), `% of all Harlem trips` = sum(ifelse(pick_neigh == 'Harlem', trips, 0))/sum(tow_nhood_sum[pick_neigh == 'Harlem']$trips), `% of all Manhattan trips` = sum(trips)/sum(tow_nhood_sum$trips)), .(dayofweek, pick_hour, wday_hour = dayofweek + round(pick_hour/24,4))][order(dayofweek, pick_hour)]
+tow_hour[, `Difference (Harlem - Manhattan)` := `% of all Harlem trips` - `% of all Manhattan trips`]
+
+vars <- c("% of trips paid in cash (left axis)", "% of all Harlem trips", "% of all Manhattan trips", "Difference (Harlem - Manhattan)")
+var_order <- c(1, 2, 3, 4)
+tow_hour <- melt(tow_hour, id.vars = c("dayofweek", "pick_hour", "wday_hour"), measure.vars = vars)
+#tow_hour <- tow_hour[variable == '% of all Harlem trips']
+
+p3 <- nPlot(value ~ wday_hour, group = "variable", data = tow_hour[order(variable)], type = 'multiChart')
+p3$set(multi = list(
+  `% of all Manhattan trips` = list(type="line", yAxis=2),
+  `% of all Harlem trips` = list(type="line", yAxis=2),
+  `Difference (Harlem - Manhattan)` = list(type="bar", yAxis=2),
+  `% of trips paid in cash (left axis)` = list(type="line", yAxis=1)
+))
+p3$xAxis(
+  tickFormat=
+    "#!function(d) {
+        return d3.format(',0.0')(d);
+      }!#"
+  ,showMaxMin = FALSE
+  ,axisLabel = "Day of week (Sunday = 1)"
+)
+p3$setTemplate( script = sprintf(
+"<script>
+ $(document).ready(function(){
+      draw{{chartId}}()
+    });
+    function draw{{chartId}}(){  
+      var opts = {{{ opts }}},
+        data = {{{ data }}}
+      if(!(opts.type==='pieChart')) {
+        var data = d3.nest()
+          .key(function(d){
+            return opts.group === undefined ? 'main' : d[opts.group]
+          })
+          .entries(data);
+      }
+      //loop through to give an expected x and y
+      //then give the type and yAxis hopefully provided by R
+      data.forEach(function(variables) {
+        variables.values.forEach(function(values){
+                values.x = values[opts.x];
+                values.y = values[opts.y];
+            });
+        variables.type = opts.multi[variables.key].type;
+        variables.yAxis = opts.multi[variables.key].yAxis;
+        });
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          //.x(function(d) { return d[opts.x] })
+          //.y(function(d) { return d[opts.y] })
+          .width(730)
+          .height(600)
+        {{{ chart }}}
+        {{{ xAxis }}}
+{{{ x2Axis }}}
+        chart.yDomain2( [-0.01, 0.03] );
+        chart.yAxis2.tickFormat(d3.format(',.1%%'))
+        chart.yDomain1 ( [ 0, .52] );
+        chart.yAxis1.tickFormat(d3.format(',.0%%'))
+
+       d3.select('#' + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(350)
+        .call(chart);
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+"))
+#p3$chart(useInteractiveGuideline = TRUE)
+p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+# Adjustment calculations
+tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday', .(cash_share = sum(ifelse(payment_type == 'CSH', trips, 0))/sum(trips), tow_share_Harlem = sum(ifelse(pick_neigh == 'Harlem', trips, 0))/sum(tow_nhood_sum[pick_neigh == 'Harlem' & americanholiday == 'No holiday']$trips), tow_share_Manhattan = sum(trips)/sum(tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday']$trips)), .(dayofweek, pick_hour, wday_hour = dayofweek + pick_hour/24)][order(dayofweek, pick_hour)]
+if(sum(tow_hour$tow_share_Manhattan) != 1 | sum(tow_hour$tow_share_Manhattan) != 1) stop("TOW should sum to 1")
+tow_hour[, diff := tow_share_Harlem - tow_share_Manhattan]
+
+adj_rate <- tow_hour[, sum(diff*cash_share)]
+```
+
+### Best / worst tippers
+
+* __Definition:__ average tip percentage
+* __Scope:__ Manhattan pickups paid by card[^4]
+* __Best tippers:__ Midtown pickups
+* __Worst tippers:__ East Harlem pickups
+
+Adjusting the average Harlem tip % for [time of week](http://www.bloomberg.com/news/articles/2014-07-31/heres-how-much-you-should-be-tipping-your-cab-driver), using the same methodology as above, suggests that only 0.1 percentage points of the difference are attributable to the time-of-week distribution of rides.
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+# Adjustment calculations
+tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday', .(tip = sum(ifelse(payment_type == 'CRD', tip, 0))/sum(ifelse(payment_type == 'CRD', fare, 0)), tow_share_Harlem = sum(ifelse(pick_neigh == 'Harlem', trips, 0))/sum(tow_nhood_sum[pick_neigh == 'Harlem' & americanholiday == 'No holiday']$trips), tow_share_Manhattan = sum(trips)/sum(tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday']$trips)), .(dayofweek, pick_hour, wday_hour = dayofweek + pick_hour/24)][order(dayofweek, pick_hour)]
+if(sum(tow_hour$tow_share_Manhattan) != 1 | sum(tow_hour$tow_share_Manhattan) != 1) stop("TOW should sum to 1")
+tow_hour[, diff := tow_share_Harlem - tow_share_Manhattan]
+
+adj_rate <- tow_hour[, sum(diff*tip)]
+```
+
+If you're a taxi driver, this doesn't necessarily mean you'll want to be cruising Midtown for passengers. There are a number of other factors you'd want to consider, such as total expected fare (per minute), supply density, etc. Additionally, this post doesn't assign any _reason_ for these average tips. East Harlem pickups may experience worse service on average, they could tip less on average due to [less disposable income](http://www.wnyc.org/story/174508-blog-census-locates-citys-wealthiest-and-poorest-neighborhoods/), or a host of other reasons.
+
+##### Figure 4: Average tip by neighborhood
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+tip <- neighborhood_sum[pick_neigh %in% manhattan_nhoods$name, .(`Average tip %` = sum(tip)/sum(fare)), .(pick_neigh)][order(-`Average tip %`)]
+
+p3 <- nPlot(`Average tip %` ~ pick_neigh, data = tip, type = 'multiBarHorizontalChart')
+p3$yAxis(tickFormat="#!function(d) {return d3.format(',%')(d)}!#")
+p3$yAxis(axisLabel = 'Average tip %')
+p3$set(width = 750, height = 600)
+p3$chart(stacked = T, margin = list(left = 140, right = 50), showControls = F, showLegend = F)
+p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+### Furthest / shortest travelers
+* __Definition:__ average distance traveled
+* __Scope:__ Manhattan pickups
+* __Furthest travelers__: Financial District pickups
+* __Shortest travelers__: Gramercy pickups
+
+Where are Financial District and Gramercy pickups going that makes their average trip so long / short, respectively? Midtown. Midtown dropoffs account for 12% of trips from the Financial District and 16% of trips from Gramercy[^5].
+
+##### Figure 5: Average distance traveled by pickup neighborhood
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+avg_dist <- tow_pick[pick_neigh %in% manhattan_nhoods$name, .(`Average distance` = sum(distance)/sum(trips)), .(pick_neigh)][order(-`Average distance`)]
+avg_dist[,`Average distance` := round(`Average distance`*10)/10]
+
+p3 <- nPlot(`Average distance` ~ pick_neigh, data = avg_dist, type = 'multiBarHorizontalChart')
+p3$yAxis(tickFormat="#!function(d) {return d3.format(',.0')(d)}!#")
+p3$yAxis(axisLabel = 'Average distance per pickup (miles)')
+p3$set(width = 750, height = 600)
+p3$chart(stacked = T, margin = list(left = 140, right = 50), showControls = F, showLegend = F)
+p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+### Party index
+* __Definition:__ ratio of outbound to inbound trips Saturdays and Sundays before 5:00 AM
+* __Scope:__ Manhattan outbound neighborhoods, all inbound neighborhoods
+* __Biggest party neighborhood:__ Lower East Side
+
+This party index identifies neighborhoods where more more trips leave a given neighborhood than enter that neighborhood early Saturday and Sunday mornings (presumably after a late night out Friday and Saturday, respectively). Todd Schneider uses a slightly different index of late night activity [here](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#late-night-taxi-index), which identifies late night hotspots by comparing neighborhood pickup volumes during Friday and Saturday nights to volumes during other times of the week. I created my index in order to better measure neighborhoods with naturally high volumes during non-party hours[^6].
+
+##### Table 2: Top 5 party destinations
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+party_neigh <- tow_flow[nhood %in% manhattan_nhoods$name & dayofweek %in% c(1, 7) & pick_hour < 5, .(trips_out = sum(trips_out), trips_in = sum(trips_in), outin= sum(trips_out)/sum(trips_in), net_trips_in = sum(net_trips_in)), .(nhood)][order(-outin)]
+dt <- party_neigh[1:5, .(Neighborhood = nhood, `Trips out:in ratio` = comma(outin, digits = 2), `Incoming trips` = comma(trips_in), `Outbound trips` = comma(trips_out))]
+
+kable(dt, format.args = list(big.mark = ","), row.names = FALSE)
+
+```
+
+
+### Most / least diverse
+* __Definition:__ [Shannon diversity index](http://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/shannon.htm)
+* __Scope:__ Manhattan dropoffs, all non-missing pickup locations
+* __Most diverse:__ Chinatown dropoffs
+* __Least diverse:__ Carnegie Hill dropoffs
+
+The Shannon diversity index gives weight to both the abundance and evenness of pickup neighborhoods for any given dropoff neighborhood. The top three pickup neighborhoods for Carnegie Hill dropoffs account for 71% of its volume (unsurprisingly 41% is from the Upper East Side) but the top three pickup neighborhoods for Chinatown droppoffs only account for 30% of its volume.
+
+##### Figure 6: Diversity of dropoffs by neighborhood
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+dt <- tow_nhood_sum[drop_neigh %in% manhattan_nhoods$name & !is.na(drop_neigh) & !is.na(pick_neigh), .(Trips = sum(trips)), .(pick_neigh, drop_neigh)]
+dt <- dcast(dt, drop_neigh ~ pick_neigh, value.var = "Trips")
+dt[is.na(dt)] <- 0
+drop_diversity <- diversity(dt[,2:ncol(dt), with = F], "shannon")
+dt_plot <- data.table(drop_neigh = dt[, drop_neigh], `Shannon diversity index` = drop_diversity)
+dt_plot <- dt_plot[order(-`Shannon diversity index`)]
+dt_plot[, `Shannon diversity index` := round(`Shannon diversity index`, 3)]
+
+p3 <- nPlot(`Shannon diversity index` ~ drop_neigh, data = dt_plot, type = 'multiBarHorizontalChart')
+p3$yAxis(tickFormat="#!function(d) {return d3.format('0.0')(d)}!#")
+p3$yAxis(axisLabel = 'Shannon diversity index (diversity of pickup neighborhoods)')
+p3$set(width = 750, height = 600)
+p3$chart(stacked = T, margin = list(left = 140, right = 50), showControls = F, showLegend = F)
+p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+_Note: This post is best viewed in Chrome, Firefox, or Safari._
+
+-----------------------------------------------------------------------------
+
+### Footnotes
+
+[^1]: As someone who's lived in each of these three neighborhoods I can vouch for this, especially in [Subway deserts](https://team.carto.com/u/chriswhong/viz/e60e7660-3982-11e5-9997-0e853d047bba/public_map)
+[^2]: Unbanked defined as no member of the household having a checking or savings account; as of 2013
+[^3]: Adjustment calculated as the sum product of the difference in time of week distribution and the cash payment rate
+[^4]: Total tip as a fraction of total base fare; figures exclude trips not paid for by card, as tips for these fares are rarely recorded
+[^5]: Turns out this is no more than average -- 16% of all yellow cab trips in 2014 ended in Midtown
+[^6]: Todd's late night index might fail to identify neighborhoods that have high traffic volumes during non-party hours, and might mistakenly identify neighborhoods that have low traffic volumes during non-party hours; conversely, my index might fail to identify neighborhoods that have a lot of party-goers returning from other areas, and might mistakenly identify neighborhoods where no one gets dropped off
