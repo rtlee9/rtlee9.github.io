@@ -43,7 +43,16 @@ In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I exami
 
 This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). Plots were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html).
 
-### Top routes
+## Table of contents
+
+* [Top routes](#routes)
+* [Most / least likely to pay with cash](#cash)
+* [Best / worst tippers](#tips)
+* [Furthest / shortest travelers](#distance)
+* [Party index](#party)
+* [ Most / least diverse](#diversity)
+
+### Top routes {#routes}
 Table 1 outlines the top neighborhood-to-neighborhood routes in 2014. The list is dominated by three neighborhoods: the Upper East Side, Midtown, and the Upper West Side.
 
 ##### Table 1: top routes
@@ -56,9 +65,9 @@ kable(dt, format.args = list(big.mark = ","), row.names = FALSE)
 
 Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^1]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
 
-Figure 1 shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday evenings than on weekday mornings, while the opposite is true for routes originating from Midtown.
+[Figure 1](#fig1) shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday evenings than on weekday mornings, while the opposite is true for routes originating from Midtown.
 
-##### Figure 1: top 10 routes by time of week
+##### Figure 1: top 10 routes by time of week {#fig1}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 
 dt <- tow_nhood_sum[!is.na(pick_neigh) & !is.na(drop_neigh), .(trips_t = sum(trips)), .(route = paste(pick_neigh, '->', drop_neigh))][order(-trips_t)][1:10]
@@ -78,7 +87,7 @@ p1$show('iframesrc', cdn  = TRUE)
 ```
 
 
-## Most / least likely to pay with cash
+## Most / least likely to pay with cash {#cash}
 * __Definition:__ percent of trips paid in cash
 * __Scope:__ Manhattan pickups
 * __Most likely to pay with cash__: East Harlem pickups
@@ -100,9 +109,9 @@ p3$show('iframesrc', cdn  = TRUE)
 
 ```
 
-Card usage for NYC yellow cabs peaks during morning and evening commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and after work hours on weekdays. Figure 3 shows that a larger share of Harlem's pickups originate during these times, relative to the rest of Manhattan (excluding holidays). However, adjusting for the time of week would only push Harlem's cash payment rate up by 0.1%[^3], so other reasons must be driving Harlem's high cash payment rates.
+Card usage for NYC yellow cabs peaks during morning and evening commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and after work hours on weekdays. [Figure 3](#fig3) shows that a larger share of Harlem's pickups originate during these times, relative to the rest of Manhattan (excluding holidays). However, adjusting for the time of week would only push Harlem's cash payment rate up by 0.1%[^3], so other reasons must be driving Harlem's high cash payment rates.
 
-##### Figure 3: % of trips paid in cash, by time of week
+##### Figure 3: % of trips paid in cash, by time of week {#fig3}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 
 tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday', .(`% of trips paid in cash (left axis)` = sum(ifelse(payment_type == 'CSH', trips, 0))/sum(trips), `% of all Harlem trips` = sum(ifelse(pick_neigh == 'Harlem', trips, 0))/sum(tow_nhood_sum[pick_neigh == 'Harlem']$trips), `% of all Manhattan trips` = sum(trips)/sum(tow_nhood_sum$trips)), .(dayofweek, pick_hour, wday_hour = dayofweek + round(pick_hour/24,4))][order(dayofweek, pick_hour)]
@@ -193,7 +202,7 @@ tow_hour[, diff := tow_share_Harlem - tow_share_Manhattan]
 adj_rate <- tow_hour[, sum(diff*cash_share)]
 ```
 
-### Best / worst tippers
+### Best / worst tippers {#tips}
 
 * __Definition:__ average tip percentage
 * __Scope:__ Manhattan pickups paid by card[^4]
@@ -228,7 +237,7 @@ p3$show('iframesrc', cdn  = TRUE)
 
 ```
 
-### Furthest / shortest travelers
+### Furthest / shortest travelers {#distance}
 * __Definition:__ average distance traveled
 * __Scope:__ Manhattan pickups
 * __Furthest travelers__: Financial District pickups
@@ -251,7 +260,7 @@ p3$show('iframesrc', cdn  = TRUE)
 
 ```
 
-### Party index
+### Party index {#party}
 * __Definition:__ ratio of outbound to inbound trips Saturdays and Sundays before 5:00 AM
 * __Scope:__ Manhattan outbound neighborhoods, all inbound neighborhoods
 * __Biggest party neighborhood:__ Lower East Side
@@ -269,7 +278,7 @@ kable(dt, format.args = list(big.mark = ","), row.names = FALSE)
 ```
 
 
-### Most / least diverse
+### Most / least diverse {#diversity}
 * __Definition:__ [Shannon diversity index](http://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/shannon.htm)
 * __Scope:__ Manhattan dropoffs, all non-missing pickup locations
 * __Most diverse:__ Chinatown dropoffs
