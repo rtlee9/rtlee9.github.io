@@ -7,13 +7,22 @@ tags: [R, finance, index, equity]
 
 This post examines the Dow Jones Industrial Average ("DJIA") along one of its key criticisms: price-weighting. It quantifies the extent to which price-weighting distorts the DJIA by creating a distortion index that measures aggregate over/under influence across all index components relative to a capitalization-weighted index composed of the same stocks. The index averages roughly 36% over time, with sharp fluctuations in the index driven by changes in index composition and by stock splits.
 
-## Background
+## Table of contents
 
-### History
+* [Background](#background)
+  * [History](#history)
+  * [Methodology](#methodology)
+  * [Initial assessment](#initial-assessment)
+* [Thought experiment: what would a cap-weighted index of the same stocks look like?](#thought-experiment)
+* [The Dow Jones Distortion Index](#DJDI)
+
+## Background {#background}
+
+### History {#history}
 
 The DJIA was published in 1896 as a benchmark and a barometer for the broader equity market. The market is now over 470 times larger than it was [then](http://irrationalexuberance.com/main.html?src=%2F#4,0), though the DJIA today is composed of only 30 stocks, up from 12 stocks in 1896. In spite of its extreme simplicity, the DJIA remains one of the most widely quoted indices today. According to [Dow Jones Averages](http://www.djaverages.com/?go=industrial-overview): "...the DJIA today serves the same purpose for which it was created – to provide a clear, straightforward view of the stock market and, by extension, the U.S. economy."
 
-### Methodology
+### Methodology {#methodology}
 The DJIA is calculated by summing the prices of its component stocks and dividing the resulting sum by the _Dow Divisor_, a static multiplier that adjusts the index for [historical continuity](https://www.djaverages.com/?go=industrial-calculation). Consider a fictional market in which there are only three companies:
 
 | Company                          | Ticker | Market cap | Shares outstanding | Price per share |
@@ -24,7 +33,7 @@ The DJIA is calculated by summing the prices of its component stocks and dividin
 
 Say the DJIA were composed of WWW and XYZ. It would be calculated as $$DJIA = \frac{\$2 + \$1}{D}$$ where $$D$$ is the _Dow Divisor_. If the _Dow Divisor_ were 0.1 then $$DJIA = \frac{\$2 + \$1}{0.1} = 30$$.
 
-### Initial assessment
+### Initial assessment {#initial-assessment}
 If the DJIA is meant to provide a clear view of the stock market, it does so [imperfectly](https://www.washingtonpost.com/news/wonk/wp/2013/09/10/the-dow-jones-industrial-average-is-ridiculous/) in three ways, as illustrated by the 3-stock market above:
 
 1. __Price-weighting:__ WWW comprises $$\frac{2}{3}$$ of the DJIA, even though XYZ is the same size as WWW; assuming constant shares outstanding:
@@ -39,10 +48,10 @@ Matt Levine does a great job of summarizing these points for [Dealbreaker](http:
 
 The rest of this post focuses on criticism #1, which is that each stock's influence on the DJIA is determined solely by its [price](http://caps.fool.com/Blogs/why-the-dow-is-a-pretty-stupid/794693). This is unsettling, given the price of a stock is determined by a number of factors not directly related to the fundamentals of the underlying company; for example, stock splits influence stock price significantly without changing the inherent value or size of the company itself.
 
-## Thought experiment: what would a cap-weighted index of the same stocks look like?
-In order to get a sense for the impact of price-weighting vs. cap-weighting[^2], let's benchmark the DJIA against a new, cap-weighted index composed of the same stocks (which I'll call the Dow Jones Market Cap Average, or _DJMCA_)[^3]. Figure 1 compares the returns of the cap-weighted DJMCA against those of the price-weighted DJIA and the S&P 500 (you can also click on the legend to view the cap-weighted Russell 2000 returns). The S&P 500 includes many times more stocks than the DJIA and it is cap-weighted[^4], so it serves as an informative benchmark.
+## Thought experiment: what would a cap-weighted index of the same stocks look like? {#thought-experiment}
+In order to get a sense for the impact of price-weighting vs. cap-weighting[^2], let's benchmark the DJIA against a new, cap-weighted index composed of the same stocks (which I'll call the Dow Jones Market Cap Average, or _DJMCA_)[^3]. [Figure 1](#fig1) compares the returns of the cap-weighted DJMCA against those of the price-weighted DJIA and the S&P 500 (you can also click on the legend to view the cap-weighted Russell 2000 returns). The S&P 500 includes many times more stocks than the DJIA and it is cap-weighted[^4], so it serves as an informative benchmark.
 
-#### Figure 1: Percent gain in index value since September 2012
+#### Figure 1: Percent gain in index value since September 2012 {#fig1}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 library(rCharts, quietly = TRUE)
 library(data.table, quietly = TRUE)
@@ -72,9 +81,9 @@ p2$show('iframesrc', cdn  = TRUE)
 
 The DJMCA shows lower returns than does the DJIA -- if weighted by market cap, the DJIA would have only gained 23% since September 2012, whereas the actual DJIA gained 32%. The S&P 500, meanwhile, gained 44% over the same period. The distortion introduced by price-weighting actually makes the index look like a better reflection of the market (i.e., closer to the S&P 500) than the underlying components would naturally indicate.
 
-Figure 1 tells us that the DJIA would look different if cap-weighted, but it doesn't tell the whole story. It requires a reference point (I anchored all indices to an arbitrary date in 2012) -- you can't look at any single day and say what the impact of price-weighting is on that day. It is also not clear from Figure 1 what specific events are driving any disparity observed. To better answer the question at hand, I introduce...
+[Figure 1](#fig1) tells us that the DJIA would look different if cap-weighted, but it doesn't tell the whole story. It requires a reference point (I anchored all indices to an arbitrary date in 2012) -- you can't look at any single day and say what the impact of price-weighting is on that day. It is also not clear from [Figure 1](#fig1) what specific events are driving any disparity observed. To better answer the question at hand, I introduce...
 
-## The Dow Jones Distortion Index
+## The Dow Jones Distortion Index {#DJDI}
 In order to measure the extent to which price-weighting distorts the DJIA at any given point in time, I created the Dow Jones Distortion Index ("DJDI"), which compares each stock's contribution to the DJIA against its contribution to a theoretical cap-weighted index composed of the same stocks. The DJDI represents the total deviance of all components' price weights from their market cap weights (additional details on methodology [here](http://eightportions.com/references/DJDI_methodology)). The DJDI is 0% when the DJIA is least distorted by price-weighting and 100% when it is most distorted by price-weighting[^5].
 
 The following table illustrates how the DJDI would be calculated for our running example:
@@ -91,13 +100,13 @@ The DJDI is calculated as the sum of column __[D]__ (in this example, the DJDI e
 * __[P]:__ Calculate the share of the index's total price
 * __[D]:__ Calculate the absolute value of the difference between __[M]__ and __[P]__
 
-Figure 2, below, plots the DJDI over time; we observe the DJDI changing on a daily basis due to a combination of the following events:
+[Figure 2](#fig2), below, plots the DJDI over time; we observe the DJDI changing on a daily basis due to a combination of the following events:
 
 1. Changes in index composition (i.e., stocks formerly in the index are replaced by other stocks)
 1. Stock splits or other changes in shares outstanding (e.g., buybacks, stock offerings)
 1. Asynchronous changes in stock prices
 
-#### Figure 2: Dow Jones Distortion Index over time
+#### Figure 2: Dow Jones Distortion Index over time {#fig2}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 library(rCharts, quietly = TRUE)
 library(data.table, quietly = TRUE)
@@ -127,9 +136,9 @@ Each of the three major shifts in the DJDI can be attributed to changes in index
     * Prior to the stock split, V accounted for 9.5% of the index by price, and only 3.3% of the combined market cap; after the stock split it accounts for 2.5% of the total price and 3% of the combined market cap
 * __December 24, 2015:__ NKE issues 2:1 stock split; prior to the stock split, NKE accounted for 5% of the index by price, and only 2% of the combined market cap; after the stock split it accounts for 2.5% of the total price and 2% of the combined market cap
 
-One of the nice things about the DJDI is that it allows us to see which stocks are contributing how much to the distortion observed in Figure 2. The contribution of each stock to the DJDI is shown in Figure 3 below (note that the sum of the contribution of all stocks is equal to the DJDI). Each of the major shifts in the DJDI discussed above, can be explored below at the individual stock level.
+One of the nice things about the DJDI is that it allows us to see which stocks are contributing how much to the distortion observed in [Figure 2](#fig2). The contribution of each stock to the DJDI is shown in [Figure 3](#fig3) below (note that the sum of the contribution of all stocks is equal to the DJDI). Each of the major shifts in the DJDI discussed above, can be explored below at the individual stock level.
 
-#### Figure 3: Individual stock contribution to DJDI
+#### Figure 3: Individual stock contribution to DJDI {#fig3}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 library(rCharts, quietly = TRUE)
 library(data.table, quietly = TRUE)
