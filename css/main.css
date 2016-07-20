@@ -170,6 +170,12 @@ img {
   }
 }
 
+@media only screen and (max-width: 768px) and (min-width: 350px) {
+  .navbar-custom .avatar-container {
+    left: 52%;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-custom .avatar-container {
     left: 50%;
