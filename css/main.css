@@ -125,10 +125,6 @@ img {
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
   }
-
-  .navbar-custom.top-nav-short {
-    padding: 0;
-  }
 }
 
 .navbar-custom .avatar-container {
@@ -154,10 +150,6 @@ img {
   width: 100%;
   border-radius: 50%;
   display: block;
-}
-
-.navbar-custom.top-nav-short .avatar-container{
-  opacity: 0;
 }
 
 .navbar-custom.top-nav-expanded .avatar-container  {
