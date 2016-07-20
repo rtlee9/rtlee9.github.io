@@ -120,7 +120,7 @@ img {
 
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    padding: 20px 0;
+    padding: 6px 0;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -139,7 +139,7 @@ img {
   transition: opacity 0.5s ease-in-out;
   left: 50%;
   width: 50px;
-  margin-top: -25px;
+  margin-top: -38px;
 }
 .navbar-custom .avatar-container  .avatar-img-border {
   width: 100%;
@@ -164,9 +164,16 @@ img {
   display: none;
 }
 
+@media only screen and (max-width: 350px) {
+  .navbar-custom .avatar-container {
+    left: 58%;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-custom .avatar-container {
-    width: 100px;
+    left: 50%;
+    width: 75px;
     margin-top: -50px;
   }
 
