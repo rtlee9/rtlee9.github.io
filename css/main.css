@@ -549,14 +549,3 @@ table tr th :last-child,
 table tr td :last-child {
   margin-bottom: 0;
 }
-
-h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {content:"";display:block;margin-top:-60px;height:60px;}
-
-/* This applies to all targets, but adds space to footnote links
-:target::before {
-      content: "";
-      display: block;
-      margin-top: -60px;
-      height: 60px;
-}
-*/
