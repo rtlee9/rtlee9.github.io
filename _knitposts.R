@@ -29,7 +29,12 @@ for (infile in list.files("_drafts/", pattern="*.Rmd", full.names=TRUE)) {
 }
 
 for (infile in list.files("_source/", pattern="*.Rmd", full.names=TRUE)) {
-  outfile = paste0("_posts/", sub(".Rmd$", ".md", basename(infile)))
+  fname <- sub(".Rmd$", ".md", basename(infile))
+  if (is.numeric(substr(fname, 1, 4))) {
+    outfile = paste0("references/", fname)
+  } else {
+    outfile = paste0("_posts/", fname)
+  }
   
   # knit only if the input file is the last one modified
   if (!file.exists(outfile) |
