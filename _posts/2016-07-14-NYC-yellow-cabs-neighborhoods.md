@@ -67,21 +67,21 @@ Each of these three neighborhoods are geographically large, and likely contain m
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1ab6a5eb8a0&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab5eaf88f6&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart1ab6a5eb8a0()
+      drawchart1ab5eaf88f6()
     });
-    function drawchart1ab6a5eb8a0(){  
+    function drawchart1ab5eaf88f6(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1ab6a5eb8a0&quot;,
+ &quot;dom&quot;: &quot;chart1ab5eaf88f6&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;route&quot;,
 &quot;y&quot;: &quot;trips&quot;,
 &quot;group&quot;: &quot;tow&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart1ab6a5eb8a0&quot;
+&quot;id&quot;: &quot;chart1ab5eaf88f6&quot;
 },
         data = [
  {
@@ -423,7 +423,7 @@ Each of these three neighborhoods are geographically large, and likely contain m
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab6a5eb8a0'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab5eaf88f6'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 
@@ -460,20 +460,20 @@ According to the [Urban Institute](http://www.urban.org/interactive-map-where-ar
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1ab1915ad28&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab2235e611&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart1ab1915ad28()
+      drawchart1ab2235e611()
     });
-    function drawchart1ab1915ad28(){  
+    function drawchart1ab2235e611(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1ab1915ad28&quot;,
+ &quot;dom&quot;: &quot;chart1ab2235e611&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Cash share of trips&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart1ab1915ad28&quot;
+&quot;id&quot;: &quot;chart1ab2235e611&quot;
 },
         data = [
  {
@@ -649,7 +649,7 @@ According to the [Urban Institute](http://www.urban.org/interactive-map-where-ar
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab1915ad28'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab2235e611'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and late at night on weekdays. [Figure 3](#fig3) shows that a larger share of Harlem's pickups originate during times associated with high cash payment rates, relative to the rest of Manhattan. However, adjusting for the time of week would only push Harlem's cash payment rate down by 0.1 percentage points[^3], so other reasons must be driving Harlem's high cash payment rates.
@@ -679,14 +679,14 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1ab2e42e7a3&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab2643f437&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script&gt;
  $(document).ready(function(){
-      drawchart1ab2e42e7a3()
+      drawchart1ab2643f437()
     });
-    function drawchart1ab2e42e7a3(){  
+    function drawchart1ab2643f437(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1ab2e42e7a3&quot;,
+ &quot;dom&quot;: &quot;chart1ab2643f437&quot;,
 &quot;width&quot;:    800,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;wday_hour&quot;,
@@ -711,7 +711,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 &quot;yAxis&quot;:      1
 }
 },
-&quot;id&quot;: &quot;chart1ab2e42e7a3&quot;
+&quot;id&quot;: &quot;chart1ab2643f437&quot;
 },
         data = [
  {
@@ -999,7 +999,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         2.6667,
 &quot;variable&quot;: &quot;% of trips paid in cash (left axis)&quot;,
-&quot;value&quot;: 0.4741940071623
+&quot;value&quot;: 0.4741940071623 
 },
 {
  &quot;dayofweek&quot;:              2,
@@ -5468,7 +5468,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab2e42e7a3'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab2643f437'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 
@@ -5512,20 +5512,20 @@ If you're a taxi driver, this doesn't necessarily mean you'll want to be cruisin
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1abc67a8c4&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab70ff4b8a&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart1abc67a8c4()
+      drawchart1ab70ff4b8a()
     });
-    function drawchart1abc67a8c4(){  
+    function drawchart1ab70ff4b8a(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1abc67a8c4&quot;,
+ &quot;dom&quot;: &quot;chart1ab70ff4b8a&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Average tip %&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart1abc67a8c4&quot;
+&quot;id&quot;: &quot;chart1ab70ff4b8a&quot;
 },
         data = [
  {
@@ -5701,7 +5701,7 @@ If you're a taxi driver, this doesn't necessarily mean you'll want to be cruisin
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1abc67a8c4'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab70ff4b8a'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 ### Furthest / nearest travelers {#distance}
@@ -5737,133 +5737,133 @@ Where are Financial District and Carnegie Hill pickups going that makes their av
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1ab56bd49aa&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab642f5e36&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart1ab56bd49aa()
+      drawchart1ab642f5e36()
     });
-    function drawchart1ab56bd49aa(){  
+    function drawchart1ab642f5e36(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1ab56bd49aa&quot;,
+ &quot;dom&quot;: &quot;chart1ab642f5e36&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;pick_neigh&quot;,
 &quot;y&quot;: &quot;Average distance&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart1ab56bd49aa&quot;
+&quot;id&quot;: &quot;chart1ab642f5e36&quot;
 },
         data = [
  {
  &quot;pick_neigh&quot;: &quot;Financial District&quot;,
-&quot;Average distance&quot;:            5.6
+&quot;Average distance&quot;:  5.61861835843
 },
 {
  &quot;pick_neigh&quot;: &quot;Little Italy&quot;,
-&quot;Average distance&quot;:            4.5
+&quot;Average distance&quot;: 4.461923538092
 },
 {
  &quot;pick_neigh&quot;: &quot;Washington Heights&quot;,
-&quot;Average distance&quot;:            4.4
+&quot;Average distance&quot;: 4.443841301304
 },
 {
  &quot;pick_neigh&quot;: &quot;Inwood&quot;,
-&quot;Average distance&quot;:            4.4
+&quot;Average distance&quot;: 4.389391607893
 },
 {
  &quot;pick_neigh&quot;: &quot;Battery Park&quot;,
-&quot;Average distance&quot;:              4
+&quot;Average distance&quot;: 3.983361475823
 },
 {
  &quot;pick_neigh&quot;: &quot;Soho&quot;,
-&quot;Average distance&quot;:            3.5
+&quot;Average distance&quot;: 3.513179742097
 },
 {
  &quot;pick_neigh&quot;: &quot;Hamilton Heights&quot;,
-&quot;Average distance&quot;:            3.4
+&quot;Average distance&quot;: 3.419421668288
 },
 {
  &quot;pick_neigh&quot;: &quot;Murray Hill&quot;,
-&quot;Average distance&quot;:            3.3
+&quot;Average distance&quot;: 3.343021324413
 },
 {
  &quot;pick_neigh&quot;: &quot;Morningside Heights&quot;,
-&quot;Average distance&quot;:              3
+&quot;Average distance&quot;: 3.033302411673
 },
 {
  &quot;pick_neigh&quot;: &quot;Lower East Side&quot;,
-&quot;Average distance&quot;:              3
+&quot;Average distance&quot;: 2.998610959361
 },
 {
  &quot;pick_neigh&quot;: &quot;Chinatown&quot;,
-&quot;Average distance&quot;:              3
+&quot;Average distance&quot;: 2.986833582955
 },
 {
  &quot;pick_neigh&quot;: &quot;Tribeca&quot;,
-&quot;Average distance&quot;:              3
+&quot;Average distance&quot;: 2.983215237762
 },
 {
  &quot;pick_neigh&quot;: &quot;Midtown&quot;,
-&quot;Average distance&quot;:            2.9
+&quot;Average distance&quot;: 2.877922125301
 },
 {
  &quot;pick_neigh&quot;: &quot;Harlem&quot;,
-&quot;Average distance&quot;:            2.8
+&quot;Average distance&quot;: 2.829829949081
 },
 {
  &quot;pick_neigh&quot;: &quot;East Harlem&quot;,
-&quot;Average distance&quot;:            2.8
+&quot;Average distance&quot;:  2.78633057556
 },
 {
  &quot;pick_neigh&quot;: &quot;East Village&quot;,
-&quot;Average distance&quot;:            2.7
+&quot;Average distance&quot;: 2.699890888258
 },
 {
  &quot;pick_neigh&quot;: &quot;Yorkville&quot;,
-&quot;Average distance&quot;:            2.7
+&quot;Average distance&quot;: 2.662742404133
 },
 {
  &quot;pick_neigh&quot;: &quot;Clinton&quot;,
-&quot;Average distance&quot;:            2.6
+&quot;Average distance&quot;: 2.587233850053
 },
 {
  &quot;pick_neigh&quot;: &quot;West Village&quot;,
-&quot;Average distance&quot;:            2.5
+&quot;Average distance&quot;: 2.515445202965
 },
 {
  &quot;pick_neigh&quot;: &quot;Garment District&quot;,
-&quot;Average distance&quot;:            2.4
+&quot;Average distance&quot;: 2.413791948357
 },
 {
  &quot;pick_neigh&quot;: &quot;Chelsea&quot;,
-&quot;Average distance&quot;:            2.4
+&quot;Average distance&quot;: 2.382626638566
 },
 {
  &quot;pick_neigh&quot;: &quot;Greenwich Village&quot;,
-&quot;Average distance&quot;:            2.4
+&quot;Average distance&quot;: 2.382468779561
 },
 {
  &quot;pick_neigh&quot;: &quot;Upper West Side&quot;,
-&quot;Average distance&quot;:            2.4
+&quot;Average distance&quot;: 2.373281362831
 },
 {
  &quot;pick_neigh&quot;: &quot;Central Park&quot;,
-&quot;Average distance&quot;:            2.3
+&quot;Average distance&quot;: 2.327048990111
 },
 {
  &quot;pick_neigh&quot;: &quot;North Sutton Area&quot;,
-&quot;Average distance&quot;:            2.3
+&quot;Average distance&quot;: 2.290314584736
 },
 {
  &quot;pick_neigh&quot;: &quot;Gramercy&quot;,
-&quot;Average distance&quot;:            2.3
+&quot;Average distance&quot;: 2.287731662593
 },
 {
  &quot;pick_neigh&quot;: &quot;Upper East Side&quot;,
-&quot;Average distance&quot;:            2.3
+&quot;Average distance&quot;: 2.277637405318
 },
 {
  &quot;pick_neigh&quot;: &quot;Carnegie Hill&quot;,
-&quot;Average distance&quot;:            2.2
+&quot;Average distance&quot;: 2.164282339865
 }
 ]
 
@@ -5926,8 +5926,10 @@ Where are Financial District and Carnegie Hill pickups going that makes their av
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab56bd49aa'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab642f5e36'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
+
+
 
 ### Top party neighborhood(s) {#party}
 * __Definition:__ ratio of outbound to inbound trips Saturdays and Sundays before 5 AM
@@ -5980,20 +5982,20 @@ The Shannon diversity index gives weight to both the abundance and evenness of p
   &lt;/head&gt;
   &lt;body &gt;
 
-    &lt;div id = &#039;chart1ab5b7c832d&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chart1ab521c853c&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
     &lt;script type=&#039;text/javascript&#039;&gt;
  $(document).ready(function(){
-      drawchart1ab5b7c832d()
+      drawchart1ab521c853c()
     });
-    function drawchart1ab5b7c832d(){  
+    function drawchart1ab521c853c(){  
       var opts = {
- &quot;dom&quot;: &quot;chart1ab5b7c832d&quot;,
+ &quot;dom&quot;: &quot;chart1ab521c853c&quot;,
 &quot;width&quot;:    750,
 &quot;height&quot;:    600,
 &quot;x&quot;: &quot;drop_neigh&quot;,
 &quot;y&quot;: &quot;Shannon diversity index&quot;,
 &quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chart1ab5b7c832d&quot;
+&quot;id&quot;: &quot;chart1ab521c853c&quot;
 },
         data = [
  {
@@ -6169,7 +6171,7 @@ The Shannon diversity index gives weight to both the abundance and evenness of p
 
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab5b7c832d'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chart1ab521c853c'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
 _Note: This post is best viewed in Chrome, Firefox, or Safari._

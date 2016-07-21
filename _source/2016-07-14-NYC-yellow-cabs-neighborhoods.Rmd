@@ -15,7 +15,6 @@ library(ggthemes, quietly = T)
 library(rCharts, quietly = T)
 library(knitr, quietly = T)
 library(vegan, quietly = T)
-setwd("/Users/Ryan/Github/NYC_taxi/3.Analysis/")
 
 pg = dbDriver("PostgreSQL")
 con = dbConnect(pg, password="", host="localhost", port=5432)
@@ -115,14 +114,16 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 #### Figure 3: % of trips paid in cash by time of week, excluding holidays {#fig3}
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 
+# Calculations
 tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholiday == 'No holiday', .(`% of trips paid in cash (left axis)` = sum(ifelse(payment_type == 'CSH', trips, 0))/sum(trips), `% of all Harlem trips` = sum(ifelse(pick_neigh == 'Harlem', trips, 0))/sum(tow_nhood_sum[pick_neigh == 'Harlem']$trips), `% of all Manhattan trips` = sum(trips)/sum(tow_nhood_sum$trips)), .(dayofweek, pick_hour, wday_hour = dayofweek + round(pick_hour/24,4))][order(dayofweek, pick_hour)]
 tow_hour[, `Difference (Harlem - Manhattan)` := `% of all Harlem trips` - `% of all Manhattan trips`]
 
+# Format for output
 vars <- c("% of trips paid in cash (left axis)", "% of all Harlem trips", "% of all Manhattan trips", "Difference (Harlem - Manhattan)")
 var_order <- c(1, 2, 3, 4)
 tow_hour <- melt(tow_hour, id.vars = c("dayofweek", "pick_hour", "wday_hour"), measure.vars = vars)
-#tow_hour <- tow_hour[variable == '% of all Harlem trips']
 
+# DIY rCharts NVD3 multichart
 p3 <- nPlot(value ~ wday_hour, group = "variable", data = tow_hour[order(variable)], type = 'multiChart')
 p3$set(multi = list(
   `% of all Manhattan trips` = list(type="line", yAxis=2),
@@ -188,7 +189,6 @@ p3$setTemplate( script = sprintf(
     };
 </script>
 "))
-#p3$chart(useInteractiveGuideline = TRUE)
 p3$show('iframesrc', cdn  = TRUE)
 
 ```
@@ -200,7 +200,7 @@ tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholida
 if(sum(tow_hour$tow_share_Manhattan) != 1 | sum(tow_hour$tow_share_Manhattan) != 1) stop("TOW should sum to 1")
 tow_hour[, diff := tow_share_Harlem - tow_share_Manhattan]
 
-adj_rate <- tow_hour[, sum(diff*cash_share)]
+adj_rate <- percent(tow_hour[, sum(diff*cash_share)])
 ```
 
 ### Best / worst tippers {#tips}
@@ -219,7 +219,7 @@ tow_hour <- tow_nhood_sum[pick_neigh %in% manhattan_nhoods$name & americanholida
 if(sum(tow_hour$tow_share_Manhattan) != 1 | sum(tow_hour$tow_share_Manhattan) != 1) stop("TOW should sum to 1")
 tow_hour[, diff := tow_share_Harlem - tow_share_Manhattan]
 
-adj_rate <- tow_hour[, sum(diff*tip)]
+adj_rate <- percent(tow_hour[, sum(diff*tip)])
 ```
 
 If you're a taxi driver, this doesn't necessarily mean you'll want to be cruising Midtown for passengers. There are a number of other factors you'd want to consider, such as total expected fare (per minute), supply density, etc. Additionally, this post doesn't assign any _reason_ for these average tips. East Harlem pickups may experience worse service on average, they could tip less on average due to [less disposable income](http://www.wnyc.org/story/174508-blog-census-locates-citys-wealthiest-and-poorest-neighborhoods/), they could be more likely to give cash tips on card fares (cash tips would likely not be recorded), or a host of other reasons.
@@ -250,7 +250,6 @@ Where are Financial District and Carnegie Hill pickups going that makes their av
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
 
 avg_dist <- tow_pick[pick_neigh %in% manhattan_nhoods$name, .(`Average distance` = sum(distance)/sum(trips)), .(pick_neigh)][order(-`Average distance`)]
-avg_dist[,`Average distance` := round(`Average distance`*10)/10]
 
 p3 <- nPlot(`Average distance` ~ pick_neigh, data = avg_dist, type = 'multiBarHorizontalChart')
 p3$yAxis(tickFormat="#!function(d) {return d3.format(',.1f')(d)}!#")
@@ -258,6 +257,16 @@ p3$yAxis(axisLabel = 'Mean distance traveled (miles)')
 p3$set(width = 750, height = 600)
 p3$chart(stacked = T, margin = list(left = 140, right = 50), showControls = F, showLegend = F)
 p3$show('iframesrc', cdn  = TRUE)
+
+```
+
+```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
+
+# Percent of FiDi trips ending in Midtown
+pct <- tow_nhood_sum[pick_neigh == 'Financial District' & drop_neigh == 'Midtown', sum(trips)]/tow_nhood_sum[pick_neigh == 'Financial District', sum(trips)]
+
+# Percent of FiDi trips ending in Midtown
+pct <- tow_nhood_sum[pick_neigh == 'Carnegie Hill' & drop_neigh == 'Midtown', sum(trips)]/tow_nhood_sum[pick_neigh == 'Carnegie Hill', sum(trips)]
 
 ```
 
