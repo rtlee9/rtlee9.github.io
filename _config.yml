@@ -142,4 +142,4 @@ prose:
 gems:
   - jekyll-paginate
   - jekyll-sitemap
-
+  - jekyll-seo-tag
