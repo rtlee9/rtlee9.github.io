@@ -1,8 +1,8 @@
 # Next steps
 
-## Site enhancments
-* Make fixed-top navbar
+## Site enhancements
 * Create a logo
 
 ## Articles
-* Taxi for a spin
+* Taxi ripoffs
+* Unit insurance - rideshare
