@@ -31,6 +31,7 @@ author:
   email: "info@eightportions.com"
   facebook:
   github: rtlee9
+  gitlab: rtlee
   twitter: eightportions
   linkedin: in/ryan-lee-087aa630
   # stackoverflow: yourlink
@@ -42,6 +43,7 @@ footer-links-active:
   email: true
   twitter: true
   github: true
+  gitlab: true
   linkedin: true
   stackoverflow: false
 
