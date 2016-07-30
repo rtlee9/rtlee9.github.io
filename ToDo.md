@@ -1,10 +1,11 @@
 # Next steps
 
 ## Site enhancements
-* Set up RSS feed
-* Add share buttons - see minimal mistakes
-* Enhance 404 (example [here](http://codepen.io/koenigsegg1/pen/VawWov))
-* Create a logo
+* [ ] Set up RSS feed
+* [ ] Add share buttons - see minimal mistakes
+* [ ] Enhance 404 (example [here](http://codepen.io/koenigsegg1/pen/VawWov))
+* [ ] Restore navbar to fixed for non-posts
+* [ ] Create a logo
 
 ## Articles
 * Taxi ripoffs
