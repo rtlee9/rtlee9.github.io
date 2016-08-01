@@ -7,7 +7,7 @@
 * [ ] Restore navbar to fixed for non-posts
 * [ ] Create a logo
 
-## Articles
+## Ideas for posts
 * Taxi ripoffs
 * Unit insurance - rideshare
 * Moral hazard in third party insurance
@@ -16,4 +16,5 @@
   * Other, e.g., WC, AL
 * NFL data - concussions, impact on worker's comp, etc.
 
-## Projects
+## Other projects
+
