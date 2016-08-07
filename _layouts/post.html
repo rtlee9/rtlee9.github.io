@@ -11,7 +11,9 @@ layout: base
 	      {{ content }}
 	    </article>
 
-      {% include social-share.html %}
+      {% if page.social-share %}
+        {% include social-share.html %}
+      {% endif %}
 
       <ul class="pager blog-pager">
         {% if page.previous.url %}
