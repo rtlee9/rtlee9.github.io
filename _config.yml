@@ -46,6 +46,7 @@ footer-links-active:
   gitlab: true
   linkedin: true
   stackoverflow: false
+  instagram: false
 
 # Select which share links to show in posts
 share-links-active:
@@ -94,6 +95,9 @@ defaults:
     values:
       layout: "page"
       show-avatar: true
+
+# Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
+link-tags: false
 
 # Exclude these files from production site
 exclude:
