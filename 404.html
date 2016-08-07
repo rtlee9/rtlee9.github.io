@@ -10,4 +10,20 @@ permalink: /404.html
   <br/>
 
   <img src="{{ site.baseurl }}/img/404_bretvictor.jpg" />
+  <br/>
+
+  <a onclick="goBack()" class="btn btn-default btn-404" title="Go back">
+    <span>Back</span>
+  </a>
+
+  <script>
+    function goBack() {
+    window.history.back();
+    }
+  </script>
+
+  <a href="{{ site.url }}" class="btn btn-default btn-404" title="Home">
+    <span>Home</span>
+  </a>
+
 </div>

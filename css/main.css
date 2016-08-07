@@ -632,3 +632,15 @@ td.gutter {
 #social-share-section {
   margin-bottom: 30px;
 }
+
+/* --- 404 buttons --- */
+.btn-404 {
+  margin: 30px 2px 30px 2px;
+  background-color: #f5f5f5;
+}
+
+.btn-404:hover,
+.btn-404:focus {
+  background: #0085a1;
+  color: white;
+}
