@@ -380,8 +380,9 @@ footer .theme-by {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-top: 51px; /* The small navbar is 50px tall + 1px border */
-  margin-bottom: 35px;
+  margin-top: -20px; /* The small navbar is 50px tall + 1px border */
+  margin-bottom: 10px;
+  z-index: -1;
 }
 .intro-header.big-img  .big-img-transition {
   position: absolute;
@@ -452,14 +453,11 @@ footer .theme-by {
 @media only screen and (min-width: 768px) {
   .intro-header {
     margin-top: 50px;
-    margin-bottom: 15px;
-  }
-  .intro-header.big-img {
-    margin-top: 91px;  /* Full navbar is small navbar + 20px padding on each side when expanded */
+    margin-bottom: 0px;
   }
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading  {
-    padding: 150px 0;
+    padding: 120px 0;
   }
   .intro-header .page-heading h1 {
     font-size: 80px;
