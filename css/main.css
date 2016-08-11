@@ -481,12 +481,36 @@ footer .theme-by {
 .header-section.has-img .intro-header.no-img {
   display: none;
 }
-@media only screen and (max-width: 460px) {
-  .intro-header {
-    margin-top: 10px;
-  }
+@media only screen and (max-width: 465px) {
   .intro-header.big-img {
     width: 100%;
+    height: 300px;
+  }
+  .intro-header.big-img .page-heading,
+  .intro-header.big-img .post-heading {
+    padding-top: 60px;
+    display: block;
+  }
+  .intro-header.big-img.header-up .page-heading,
+  .intro-header.big-img-header-up .post-heading {
+    padding-top: 120px;
+    display: block;
+  }
+}
+@media only screen and (max-width: 395px) {
+  .intro-header.big-img {
+    width: 100%;
+    height: 300px;
+  }
+  .intro-header.big-img .page-heading,
+  .intro-header.big-img .post-heading {
+    padding-top: 25px;
+    display: block;
+  }
+  .intro-header.big-img.header-up .page-heading,
+  .intro-header.big-img-header-up .post-heading {
+    padding-top: 120px;
+    display: block;
   }
 }
 @media only screen and (max-width: 319px) {
