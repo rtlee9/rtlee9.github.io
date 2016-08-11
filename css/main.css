@@ -485,6 +485,9 @@ footer .theme-by {
   .header-section.has-img .intro-header.no-img {
     display: block;
   }
+  .header-section.has-img.header-up .intro-header.no-img {
+    display: none;
+  }
   .intro-header.big-img {
     width: 100%;
     height: 220px;
@@ -492,6 +495,10 @@ footer .theme-by {
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
     display: none;
+  }
+  .intro-header.big-img.header-up .page-heading,
+  .intro-header.big-img-header-up .post-heading {
+    display: block;
   }
   .header-section.has-img .big-img {
     margin-bottom: 0;

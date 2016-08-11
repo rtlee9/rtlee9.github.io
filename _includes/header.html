@@ -18,9 +18,9 @@
   ></div>
 {% endif %}
 
-<header class="header-section {% if page.bigimg %}has-img{% endif %}">
+<header class="header-section {% if page.bigimg %}has-img{% endif %} {% if page.headerUP == true %}header-up{% endif %}">
 {% if page.bigimg %}
-<div class="big-img intro-header">
+<div class="big-img intro-header {% if page.headerUP == true %}header-up{% endif %}">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -34,7 +34,7 @@
 			<h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
 			{% endif %}
 		  {% endif %}
-		  
+
 		  {% if include.type == "post" %}
 		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
 		  {% endif %}
@@ -59,7 +59,7 @@
 			<h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
 			{% endif %}
 		  {% endif %}
-		  
+
 		  {% if include.type == "post" %}
 		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
 		  {% endif %}
