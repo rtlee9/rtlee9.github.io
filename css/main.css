@@ -481,7 +481,15 @@ footer .theme-by {
 .header-section.has-img .intro-header.no-img {
   display: none;
 }
-@media only screen and (max-width: 365px) {
+@media only screen and (max-width: 460px) {
+  .intro-header {
+    margin-top: 10px;
+  }
+  .intro-header.big-img {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 319px) {
   .header-section.has-img .intro-header.no-img {
     display: block;
   }
@@ -498,13 +506,14 @@ footer .theme-by {
   }
   .intro-header.big-img.header-up .page-heading,
   .intro-header.big-img-header-up .post-heading {
+    padding-top: 80px;
     display: block;
   }
   .header-section.has-img .big-img {
     margin-bottom: 0;
   }
 }
-@media only screen and (max-width: 325px) {
+@media only screen and (max-width: 300px) {
   .intro-header.big-img {
     height: 200px;
   }
