@@ -2,7 +2,7 @@
 
 # url is the full website URL
 # baseurl is the website's URL without the hostname
-url: "http://eightportions.com"
+url: "https://eightportions.com"
 baseurl: ""
 
 # Name of website
@@ -97,7 +97,7 @@ defaults:
       show-avatar: true
 
 # Use tags pages (not recommended if you are deploying via GitHub pages, only set to true if deploying locally with ruby)
-link-tags: false
+link-tags: true
 
 # Exclude these files from production site
 exclude:

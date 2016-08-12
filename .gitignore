@@ -3,9 +3,13 @@ _site
 .sass-cache
 .vagrant
 .Rhistory
+public/
+vendor/
 
 # general
 .DS_Store
 Thumbs.db
 ehthumbs.db
 
+# VIM swp files
+*.swp

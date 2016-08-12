@@ -1,0 +1,5 @@
+yaml ## GitLab Pages pages: enabled: true # The location where pages are stored (default: shared/pages). # path: shared/pages
+
+host: example.io port: 443 https: true
+
+external_http: 1.1.1.1:80 external_https: 1.1.1.1:443
