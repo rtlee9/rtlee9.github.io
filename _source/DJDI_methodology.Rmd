@@ -7,7 +7,7 @@ permalink: /references/DJDI_methodology
 ---
 
 # Dow Jones Distortion Index - additional details
-_The following provides additional details for my original post on the Dow Jones Distortion Index [here](http://eightportions.com/2016-06-15-Dow-Jones-Distortion-Index)._
+_The following provides additional details for my original post on the Dow Jones Distortion Index [here](https://eightportions.com/2016-06-15-Dow-Jones-Distortion-Index)._
 
 ## Methodology details
 The Dow Jones Distortion Index ("DJDI") is defined as half of the sum of the absolute difference between each stock's price-weighted contribution to the Dow Jones Industrial Average ("DJIA") and its share of the DJIA total market cap. Let $$P_n$$ equal the price of stock $$n$$ and $$M_n$$ equal the market capitalization of stock $$n$$ on any given day. The DJDI is calculated as:
