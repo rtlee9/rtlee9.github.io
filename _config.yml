@@ -107,6 +107,7 @@ exclude:
   - README.md
   - CNAME
   - Vagrantfile
+  - vendor
 
 # prose.io config
 prose:
