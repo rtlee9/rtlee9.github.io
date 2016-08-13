@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About
+bigimg: /img/Trunk.jpg
+headerUP: true
 ---
 # About Eight Portions
 Eight Portions is a blog about risk, financial markets and assorted other topics. It seeks to take a data-driven approach to answering key questions about these topics using open-source software and public data where possible.
