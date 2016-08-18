@@ -6,18 +6,16 @@ tags: [NYC, taxi, transportation, open data, R, SQL]
 ---
 
 ```{r, echo=FALSE, results='asis', message=FALSE, warning=FALSE}
-# Setup
-library(RPostgreSQL, quietly = T)
-library(data.table, quietly = T)
-library(scales, quietly = T)
-library(ggmap, quietly = T)
-library(ggthemes, quietly = T)
-library(rCharts, quietly = T)
-library(knitr, quietly = T)
-library(vegan, quietly = T)
+
+# Load packages
+reqPackages <- c("RPostgreSQL", "data.table", "scales", "rCharts", "vegan", "knitr")
+reqDownloads <- !reqPackages %in% rownames(installed.packages())
+if (any(reqDownloads)) install.packages(reqPackages[reqDownloads], dependencies = T)
+loadSuccess <- lapply(reqPackages, require, character.only = T)
+if (any(!unlist(loadSuccess))) stop(paste("\n\tPackage load failed:", reqPackages[unlist(loadSuccess) == F]))
 
 pg = dbDriver("PostgreSQL")
-con = dbConnect(pg, password="", host="localhost", port=5432)
+con = dbConnect(pg, dbname = "nyc-taxi-data", password="", host="localhost", port=5432)
 neighborhood_sum <- as.data.table(dbReadTable(con, "neighborhood_sum"))
 tow_nhood_sum <- as.data.table(dbReadTable(con, "tow_nhood_sum"))
 tow_flow <- as.data.table(dbReadTable(con, "tow_flow"))
@@ -27,13 +25,6 @@ regions <- as.data.table(dbGetQuery(con, "select city, name from zillow_sp"))
 hold <- dbDisconnect(con)
 
 manhattan_nhoods <- regions[city == 'New York City-Manhattan', .(name)]
-
-# Load maps
-map_center <- c(lon = -73.94, lat = 40.75)
-NYC <- get_googlemap(map_center, zoom = 12, size = c(500, 640))
-NYC_bw <- get_googlemap(map_center, zoom = 12, size = c(500, 640), color = "bw")
-NYC_map <- ggmap(NYC, extent = "device")
-NYC_map_bw <- ggmap(NYC_bw, extent = "device")
 
 ```
 
