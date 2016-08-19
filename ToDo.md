@@ -5,8 +5,8 @@
 * [x] Fix JS load (MathJax) on corporate network
 * [x] Add picture to about page
 * Linkchecker
-	* [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
-	* [ ] Add `linkchecker` to CI
+  * [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
+  * [ ] Add `linkchecker` to CI
 * [ ] Add captions to big imgs
 * Link posts to github repo (reproducible)
   * [ ] Taxi
@@ -15,6 +15,9 @@
 * [ ] Edit tags (e.g., "transportation") in `_source` and `_posts`
 * [ ] Set up RSS feed
 * [ ] Add site to [Jekyll sites wiki](https://github.com/jekyll/jekyll/wiki/sites)
+* Update social share buttons
+  * [ ] Dynamic size - small when mobile
+  * [ ] Text to say "Share on..."
 * [x] Add share buttons - see minimal mistakes
 * Enhance 404
   * [ ] Example [here](http://codepen.io/koenigsegg1/pen/VawWov) written in Jade
