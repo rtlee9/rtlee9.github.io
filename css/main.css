@@ -677,6 +677,18 @@ td.gutter {
   margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 433px) {
+    .btn-social {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 434px) {
+    .btn-social-icon {
+        display: none;
+    }
+}
+
 /* --- 404 buttons --- */
 .btn-404 {
   margin: 30px 2px 30px 2px;
