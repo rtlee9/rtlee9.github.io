@@ -4,16 +4,17 @@
 * [x] Add picture to landing page
 * [x] Fix JS load (MathJax) on corporate network
 * [x] Add picture to about page
-* Linkchecker
+* [ ] Jekyll incremental build
+* Link checker
   * [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
   * [ ] Add `linkchecker` to CI
-* Link posts to github repo (reproducible)
+* Link posts to GitHub repo (reproducible)
   * [ ] Taxi
   * [ ] DJDI
 * [ ] Edit tags (e.g., "transportation") in `_source` and `_posts`
 * [ ] Set up RSS feed
 * [x] Add site to [Jekyll sites wiki](https://github.com/jekyll/jekyll/wiki/sites)
-* [ ] Add captions to big imgs
+* [ ] Add captions to big images
 * [ ] Add technologies section to about
 * [x] Update social share buttons: dynamic size - small when mobile
 * [x] Add share buttons - see minimal mistakes
@@ -27,7 +28,7 @@
 
 ## Ideas for posts
 * Taxi ripoffs
-* Unit insurance - rideshare
+* Unit insurance - ride share
 * Moral hazard in third party insurance
   * Credit insurance
   * Celebrity endorsement insurance
