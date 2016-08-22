@@ -5,7 +5,7 @@ layout: post
 tags: [technology, open source, static websites, Jekyll]
 ---
 
-Last week I decided to migrate this blog, [Eight Portions](https://eightportions.com), from [GitHub Pages](https://pages.github.com/) to [GitLab Pages](https://pages.gitlab.io/?_ga=1.151808633.1580144096.1469296057) for hosting service. My experience to-date has been net positive: GitLab Pages offers more flexibility and control over your site than does GitHub Pages, though at the expense of performance and ease-of-use. This post offers a high-level comparison of these two hosting services, and provides a set of quick-start instructions and resources to get you started should you decide to follow suit.
+Last week I decided to migrate this blog, [Eight Portions](https://eightportions.com), from [GitHub Pages](https://pages.github.com/) to [GitLab Pages](https://pages.gitlab.io/) for hosting service. My experience to-date has been net positive: GitLab Pages offers more flexibility and control over your site than does GitHub Pages, though at the expense of performance and ease-of-use. This post offers a high-level comparison of these two hosting services, and provides a set of quick-start instructions and resources to get you started should you decide to follow suit.
 
 ## Contents
 
@@ -39,7 +39,7 @@ I've outlined below the biggest factors that went into my decision to migrate to
 
 Should you choose to migrate to GitLab Pages like I did, start by simply __[cloning](http://docs.gitlab.com/ce/workflow/importing/import_projects_from_github.html) your existing Jekyll repo__ to GitLab.
 
-Next, confirm that [shared Runners](https://about.gitlab.com/2016/04/05/shared-runners/?_ga=1.181906151.1580144096.1469296057) are enabled (Settings > Runners), and then  __create a configuration file__ in your repo's root directory named `.gitlab-ci.yml` to tell the CI how to test and build your site. This [document](https://gitlab.com/jekyll-themes/default-bundler/blob/master/README.md) provides a good template if you're generating your site with Jekyll. If you're going to using another static site generator, you can find some great examples [here](https://gitlab.com/groups/pages). This is what my config file looks like:
+Next, confirm that [shared Runners](https://about.gitlab.com/2016/04/05/shared-runners/) are enabled (Settings > Runners), and then  __create a configuration file__ in your repo's root directory named `.gitlab-ci.yml` to tell the CI how to test and build your site. This [document](https://gitlab.com/jekyll-themes/default-bundler/blob/master/README.md) provides a good template if you're generating your site with Jekyll. If you're going to using another static site generator, you can find some great examples [here](https://gitlab.com/groups/pages). This is what my config file looks like:
 
 {% highlight yaml linenos %}
 image: ruby:2.3  # Use Ruby Docker image
@@ -84,8 +84,8 @@ Lastly, __add your domain__ to GitLab Pages (Settings > Pages), adding your new 
 
 ## Additional resources
 
-* [GitLab Pages: step-by-step tutorial](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/?_ga=1.176989541.1580144096.1469296057)
-* [GitLab Pages: documentation](http://docs.gitlab.com/ee/pages/README.html?_ga=1.109397445.1580144096.1469296057)
+* [GitLab Pages: step-by-step tutorial](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/)
+* [GitLab Pages: documentation](http://docs.gitlab.com/ee/pages/README.html)
 
 ---
 
