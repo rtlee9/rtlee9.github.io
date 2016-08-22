@@ -22,6 +22,11 @@ navbar-links:
 # Remove this parameter if you don't want an image in the navbar
 avatar: "/img/Mt_Fuji1.jpg"
 
+# --- Jekyll SEO Tag info --- #
+logo: "/img/Mt_Fuji1.jpg"
+twitter:
+  username: eightportions
+
 # --- Footer options --- #
 
 # Change all these values or delete the ones you don't want.
