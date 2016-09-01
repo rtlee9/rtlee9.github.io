@@ -32,5 +32,4 @@
   * Celebrity endorsement insurance
   * Other, e.g., WC, AL
 * NFL data - concussions, impact on worker's comp, etc.
-
-## Other projects
+* Distributed computing for capitalists
