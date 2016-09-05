@@ -7,7 +7,7 @@ tags: [NYC, taxi, transportation, open data, R, SQL]
 
 
 
-In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I examine NYC taxi rides from a neighborhood-centric perspective through a set of superlatives that highlight the diverse nature of NYC neighborhoods, as defined by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm). This post focuses on Manhattan neighborhoods, as neighborhoods in other boroughs have relatively low volumes and differ from the average yellow cab trip in other fundamental ways (e.g., higher average distance traveled, low outbound:inbound ratio).
+In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I examine NYC taxi rides from a neighborhood-centric perspective through a set of superlatives that highlight the diverse nature of NYC neighborhoods, as defined by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm)[^1]. This post focuses on Manhattan neighborhoods, as neighborhoods in other boroughs have relatively low volumes and differ from the average yellow cab trip in other fundamental ways (e.g., higher average distance traveled, low outbound:inbound ratio).
 
 This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). The charts in this post were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and the maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html). The analysis in this post can be reproduced via my [GitHub repo](https://github.com/rtlee9/NYC_taxi).
 
@@ -20,7 +20,7 @@ This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cit
 * [Best / worst tippers](#tips)
 * [Furthest / nearest travelers](#distance)
 * [Top party neighborhoods](#party)
-* [ Most / least diverse](#diversity)
+* [Most / least diverse](#diversity)
 
 ### Top routes {#routes}
 [Table 1](#tab1) outlines the top neighborhood-to-neighborhood routes in 2014. The list is dominated by three neighborhoods: the Upper East Side, Midtown, and the Upper West Side.
@@ -40,7 +40,7 @@ This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cit
 |Upper West Side     |Midtown              | 2,074,491|
 |Gramercy            |Midtown              | 2,031,802|
 
-Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^1]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
+Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^2]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
 
 [Figure 1](#fig1) shows the same trip volumes split by time of week. It indicates that there are significant differences in the popularity of certain routes based on the time of week. Likely driven by commuter traffic, routes ending in Midtown are far more popular on weekday mornings than on weekday evenings, while the opposite is true for routes originating from Midtown.
 
@@ -435,7 +435,7 @@ Each of these three neighborhoods are geographically large, and likely contain m
 * __Most likely to pay in cash__: East Harlem pickups
 * __Least likely to pay in cash__: Battery Park pickups
 
-According to the [Urban Institute](http://www.urban.org/interactive-map-where-are-unbanked-and-underbanked-new-york-city), households in Harlem are 2.15 times as likely to be unbanked as the average Manhattan household[^2]. This could be a contributing factor, but it's hard to say how much of the cash-card disparity is caused by underlying household financials.
+According to the [Urban Institute](http://www.urban.org/interactive-map-where-are-unbanked-and-underbanked-new-york-city), households in Harlem are 2.15 times as likely to be unbanked as the average Manhattan household[^3]. This could be a contributing factor, but it's hard to say how much of the cash-card disparity is caused by underlying household financials.
 
 #### Figure 2: % of trips paid in cash by pickup neighborhood
 <iframe srcdoc=' &lt;!doctype HTML&gt;
@@ -654,7 +654,7 @@ According to the [Urban Institute](http://www.urban.org/interactive-map-where-ar
 &lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chartde7a6f2527f'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 600px;}</style>
 
-Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and late at night on weekdays. [Figure 3](#fig3) shows that a larger share of Harlem's pickups originate during times associated with high cash payment rates, relative to the rest of Manhattan. However, adjusting for the time of week would only push Harlem's cash payment rate down by 0.1 percentage points[^3], so other reasons must be driving Harlem's high cash payment rates.
+Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares are most likely on weekends, mid-day on weekdays, and late at night on weekdays. [Figure 3](#fig3) shows that a larger share of Harlem's pickups originate during times associated with high cash payment rates, relative to the rest of Manhattan. However, adjusting for the time of week would only push Harlem's cash payment rate down by 0.1 percentage points[^4], so other reasons must be driving Harlem's high cash payment rates.
 
 #### Figure 3: % of trips paid in cash by time of week, excluding holidays {#fig3}
 <iframe srcdoc=' &lt;!doctype HTML&gt;
@@ -5479,7 +5479,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 ### Best / worst tippers {#tips}
 
 * __Definition:__ mean tip percentage
-* __Scope:__ Manhattan pickups paid by card[^4]
+* __Scope:__ Manhattan pickups paid by card[^5]
 * __Best tippers:__ Midtown pickups
 * __Worst tippers:__ East Harlem pickups
 
@@ -5712,7 +5712,7 @@ If you're a taxi driver, this doesn't necessarily mean you'll want to be cruisin
 * __Furthest travelers__: Financial District pickups
 * __Nearest travelers__: Carnegie Hill pickups
 
-Where are Financial District and Carnegie Hill pickups going that makes their average trip so long / short, respectively? Midtown. Midtown dropoffs account for 12% of trips from the Financial District and 17% of trips from Carnegie Hill[^5].
+Where are Financial District and Carnegie Hill pickups going that makes their average trip so long / short, respectively? Midtown. Midtown dropoffs account for 12% of trips from the Financial District and 17% of trips from Carnegie Hill[^6].
 
 #### Figure 5: Mean distance traveled by pickup neighborhood
 <iframe srcdoc=' &lt;!doctype HTML&gt;
@@ -5938,7 +5938,7 @@ Where are Financial District and Carnegie Hill pickups going that makes their av
 * __Scope:__ outbound trips from Manhattan neighborhoods, inbound trips from all neighborhoods
 * __Top party neighborhood:__ Lower East Side
 
-This party index identifies neighborhoods where more trips leave a given neighborhood than enter early Saturday and Sunday mornings (presumably after a late night out Friday and Saturday, respectively). Todd Schneider uses a slightly different index of late night activity [here](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#late-night-taxi-index), which identifies late night hotspots by comparing neighborhood pickup volumes during Friday and Saturday nights to volumes from the same neighborhoods during other times of the week. I created my index in order to better measure neighborhoods with naturally high volumes during non-party hours[^6].
+This party index identifies neighborhoods where more trips leave a given neighborhood than enter early Saturday and Sunday mornings (presumably after a late night out Friday and Saturday, respectively). Todd Schneider uses a slightly different index of late night activity [here](http://toddwschneider.com/posts/analyzing-1-1-billion-nyc-taxi-and-uber-trips-with-a-vengeance/#late-night-taxi-index), which identifies late night hotspots by comparing neighborhood pickup volumes during Friday and Saturday nights to volumes from the same neighborhoods during other times of the week. I created my index in order to better measure neighborhoods with naturally high volumes during non-party hours[^7].
 
 #### Table 2: Top 5 party neighborhoods
 
@@ -6182,9 +6182,10 @@ _Note: This post is best viewed in Chrome, Firefox, or Safari._
 
 ### Footnotes
 
-[^1]: As someone who's lived in each of these three neighborhoods I can vouch for this, especially in [Subway deserts](https://team.carto.com/u/chriswhong/viz/e60e7660-3982-11e5-9997-0e853d047bba/public_map)
-[^2]: Unbanked defined as no member of the household having a checking or savings account; as of 2013
-[^3]: Adjustment calculated as the sum product of the difference in time of week distribution and the overall cash payment rate
-[^4]: Total tip as a fraction of total base fare; figures exclude trips not paid for by card, as tips for these fares are rarely recorded
-[^5]: This is roughly in line with average: 16% of all yellow cab trips in 2014 ended in Midtown
-[^6]: Todd's late night index might fail to identify neighborhoods that have high traffic volumes during non-party hours, and might mistakenly identify neighborhoods that have low traffic volumes during non-party hours; conversely, my index might fail to identify neighborhoods that have a lot of party-goers returning from other areas, and might mistakenly identify neighborhoods where no one gets dropped off
+[^1]: Some Zillow neighborhood definitions appear to overlap slightly; where a single taxi pickup or dropoff was found to be located in two neighborhoods (these cases represent 0.02% of all trips) they were counted as two distinct trips
+[^2]: As someone who's lived in each of these three neighborhoods I can vouch for this, especially in [Subway deserts](https://team.carto.com/u/chriswhong/viz/e60e7660-3982-11e5-9997-0e853d047bba/public_map)
+[^3]: Unbanked defined as no member of the household having a checking or savings account; as of 2013
+[^4]: Adjustment calculated as the sum product of the difference in time of week distribution and the overall cash payment rate
+[^5]: Total tip as a fraction of total base fare; figures exclude trips not paid for by card, as tips for these fares are rarely recorded
+[^6]: This is roughly in line with average: 16% of all yellow cab trips in 2014 ended in Midtown
+[^7]: Todd's late night index might fail to identify neighborhoods that have high traffic volumes during non-party hours, and might mistakenly identify neighborhoods that have low traffic volumes during non-party hours; conversely, my index might fail to identify neighborhoods that have a lot of party-goers returning from other areas, and might mistakenly identify neighborhoods where no one gets dropped off
