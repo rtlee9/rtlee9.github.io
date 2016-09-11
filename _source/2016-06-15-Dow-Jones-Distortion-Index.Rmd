@@ -2,6 +2,7 @@
 title: "The Dow Jones Distortion Index"
 subtitle: "How distorted is the Dow Jones Industrial Average?"
 layout: post
+bigimg: /img/DJI.jpg
 tags: [R, finance, index, equity]
 ---
 

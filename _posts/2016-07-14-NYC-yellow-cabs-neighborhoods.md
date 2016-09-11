@@ -2,6 +2,7 @@
 title: "NYC yellow cab trips"
 subtitle: "Neighborhood by neighborhood"
 layout: post
+bigimg: /img/city-cars-vehicles-street.jpg
 tags: [NYC, taxi, transportation, open data, R, SQL]
 ---
 
