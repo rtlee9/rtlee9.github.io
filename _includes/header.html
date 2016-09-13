@@ -1,6 +1,6 @@
 <!-- TODO this file has become a mess, refactor it -->
 
-{% if page.bigimg or page.title %}
+{% if page.bigimg or page.title or page.gradient %}
 
 {% if page.bigimg %}
   <div id="header-big-imgs" data-num-img={% if page.bigimg.first %}{{ page.bigimg.size }}{% else %}1{% endif %}
@@ -18,9 +18,11 @@
   ></div>
 {% endif %}
 
-<header class="header-section {% if page.bigimg %}has-img{% endif %} {% if page.headerUP == true %}header-up{% endif %}">
-{% if page.bigimg %}
+<header class="header-section {% if page.bigimg or page.gradient %}has-img{% endif %} {% if page.headerUP == true %}header-up{% endif %}">
+
+{% if page.bigimg or page.gradient %}
 <div class="big-img intro-header {% if page.headerUP == true %}header-up{% endif %}">
+	<div class= "{% if page.gradient %}{{page.gradient}}{% endif %}">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -34,7 +36,6 @@
 			<h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
 			{% endif %}
 		  {% endif %}
-
 		  {% if include.type == "post" %}
 		  <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
 		  {% endif %}
@@ -44,7 +45,9 @@
   </div>
   <span class='img-desc'></span>
 </div>
+</div>
 {% endif %}
+
 <div class="intro-header no-img">
   <div class="container">
     <div class="row">
