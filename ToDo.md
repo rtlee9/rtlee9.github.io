@@ -35,3 +35,8 @@
   * Other, e.g., WC, AL
 * NFL data - concussions, impact on worker's comp, etc.
 * Distributed computing for capitalists
+
+## Data
+* [U.S. Fire Administration](https://apps.usfa.fema.gov/census-download/main/download)
+* [IRS e-file non-profits](https://archive.org/details/IRS990-efile)
+* [Correlates of State Policy Project](http://ippsr.msu.edu/public-policy/correlates-state-policy)
