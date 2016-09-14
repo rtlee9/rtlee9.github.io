@@ -2,6 +2,7 @@
 title: From GitHub Pages to GitLab Pages
 subtitle: Static website hosting migration
 layout: post
+gradient: canvas
 tags: [technology, open source, static websites, Jekyll]
 ---
 

@@ -49,6 +49,11 @@
     {% endfor %}
   {% endif %}
 
+  {% if page.gradient %}
+  <script src="/js/granim.min.js"></script>
+  <script src="/js/granim.js"></script>
+  {% endif %}
+
   <!-- OpenGraph image tags -->
   {% if page.share-img %}
   <meta property="og:image" content="{{ page.share-img }}" />
