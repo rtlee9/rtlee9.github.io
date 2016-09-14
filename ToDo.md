@@ -5,6 +5,7 @@
 * [x] Fix JS load (MathJax) on corporate network
 * [x] Add picture to about page
 * [ ] Vertically center header text in big images
+* [ ] Fix sitemap - link to references - append `.html`
 * [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
 * [ ] Add captions to big images
 * [x] Link posts to GitHub repo (reproducible)
