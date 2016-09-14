@@ -4,20 +4,14 @@
 * [x] Add picture to landing page
 * [x] Fix JS load (MathJax) on corporate network
 * [x] Add picture to about page
-* [ ] Jekyll incremental build
-* Link checker
-  * [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
-  * [ ] Add `linkchecker` to CI
-* Link posts to GitHub repo (reproducible)
-  * [ ] Taxi
-  * [ ] DJDI
-* [ ] Edit tags (e.g., "transportation") in `_source` and `_posts`
-* [ ] Set up RSS feed
-* [x] Add site to [Jekyll sites wiki](https://github.com/jekyll/jekyll/wiki/sites)
+* [ ] Vertically center header text in big images
+* [ ] Fix broken links (`$ linkchecker https://eightportions.com`)
 * [ ] Add captions to big images
-* [ ] Add technologies section to about
+* [x] Link posts to GitHub repo (reproducible)
+* [x] Add site to [Jekyll sites wiki](https://github.com/jekyll/jekyll/wiki/sites)
 * [x] Update social share buttons: dynamic size - small when mobile
 * [x] Add share buttons - see minimal mistakes
+* [ ] Set up RSS feed
 * Enhance 404
   * [ ] Example [here](http://codepen.io/koenigsegg1/pen/VawWov) written in Jade
   * [x] Add navigation buttons
