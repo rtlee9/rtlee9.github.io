@@ -5,17 +5,18 @@ subtitle: Guides, introductions, and cheat sheets
 bigimg: /img/books.jpg
 ---
 
-_Last updated October 4, 2016_
+_Last updated October 25, 2016_
 
 ## Deep learning
+* [Neural Networks and Deep Learning \| Michael Nielsen](http://neuralnetworksanddeeplearning.com/)
 * [MNIST For ML Beginners \| TensorFlow](https://www.tensorflow.org/versions/r0.11/tutorials/mnist/beginners/index.html#mnist-for-ml-beginners)
+* [Implementing a Neural Network from Scratch in Python \| WildML](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
 * [Up and Down the Ladder of Abstraction \| Bret Victor](http://worrydream.com/LadderOfAbstraction/)
 * [Deep Learning, NLP, and Representations \| Colah's blog](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/)
 * [Conv Nets: A Modular Perspective \| Colah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
 * [Visualizing MNIST: An Exploration of Dimensionality Reduction \| Colah's blog](http://colah.github.io/posts/2014-10-Visualizing-MNIST/)
-* [The Unreasonable Effectiveness of Recurrent Neural Networks \| Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-* [Introduction to Scikit Flow \| Yuan Tang](http://terrytangyuan.github.io/2016/03/14/scikit-flow-intro/)
 * [Wide & Deep Learning Tutorial \| TensorFlow](https://www.tensorflow.org/versions/r0.11/tutorials/wide_and_deep/index.html#tensorflow-wide-deep-learning-tutorial)
+* [The Unreasonable Effectiveness of Recurrent Neural Networks \| Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
 ## Python
 * [The Hitchhiker’s Guide to Python! \| Kenneth Reitz](http://docs.python-guide.org/en/latest/)
