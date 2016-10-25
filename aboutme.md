@@ -7,7 +7,7 @@ headerUP: true
 # About Eight Portions
 Eight Portions is a blog about risk, finance, technology and assorted other topics. It seeks to take a data-driven approach to answering key questions about these topics using open-source software and public data where possible.
 
-I'll be using this blog as an opportunity to learn new technical things (e.g., R, git, web basics) and to learn new things about the world (which I'll share in my posts), so please feel free to leave any comments you think would be helpful. Also, don't hesitate to suggest new topics using the email link at the bottom of the site.
+I'll be using this blog as an opportunity to learn new technical things and to learn new things about the world (which I'll share in my posts), so please feel free to leave any comments you think would be helpful. Also, don't hesitate to suggest new topics using the email link at the bottom of the site.
 
 > Give a portion to seven, or even to eight,
 >
