@@ -7,7 +7,20 @@ bigimg: /img/books.jpg
 
 I've come across a number of fantastic online resources over the last several months. I've posted them here in the hope that they can be as helpful to you as they were to me. Please let me know if you have any additional resources that you think would be a good addition.
 
-_Last updated October 25, 2016_
+## Contents:
+* [Deep learning](#deep-learning)
+* [Python](#python)
+* [R](#r)
+* [Flask](#flask)
+* [Git](#git)
+* [Distributed computing](#distributed-computing)
+* [Document stores and search](#document-stores-and-search)
+* [Shell tools: VI and tmux](#shell)
+* [Data visualizations](#data-visualizations)
+* [Web design](#web-design)
+* [Free coding bootcamps](#free-coding-bootcamps)
+* [Open data](#open-data)
+* [Miscellaneous](#miscellaneous)
 
 ## Deep learning
 * [Neural Networks and Deep Learning \| Michael Nielsen](http://neuralnetworksanddeeplearning.com/)
@@ -63,7 +76,7 @@ _Last updated October 25, 2016_
 * [Introduction to PostGIS \| Boundless](http://workshops.boundlessgeo.com/postgis-intro/)
 * [Materialized View Strategies Using PostgreSQL \| Hashrocket](https://hashrocket.com/blog/posts/materialized-view-strategies-using-postgresql)
 
-## Shell tools: VI and tmux
+## Shell tools: VI and tmux {#shell}
 * [A tmux Crash Course \| thoughtbot](https://robots.thoughtbot.com/a-tmux-crash-course)
 * [Basic vi commands \| CSU CS department](https://www.cs.colostate.edu/helpdocs/vi.html)
 * [Learn Vim Progressively \| Yann Esposito](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
@@ -95,3 +108,5 @@ _Last updated October 25, 2016_
 * [Continuous Delivery – a generic plan \| Mozilla](https://quality.mozilla.org/2014/10/continuous-delivery-a-generic-plan/)
 * [Visual Information Theory \| Colah's blog](http://colah.github.io/posts/2015-09-Visual-Information/)
 * [Peter@Norvig.com \| Peter Norvig](http://norvig.com/)
+
+_Last updated October 25, 2016_
