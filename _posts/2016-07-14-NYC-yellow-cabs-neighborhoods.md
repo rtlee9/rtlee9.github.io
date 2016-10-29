@@ -7,7 +7,6 @@ tags: [NYC, taxi, transportation, open data, R, SQL]
 ---
 
 
-
 In this post I explore NYC yellow cab data neighborhood-by-neighborhood. I examine NYC taxi rides from a neighborhood-centric perspective through a set of superlatives that highlight the diverse nature of NYC neighborhoods, as defined by [Zillow](http://www.zillow.com/howto/api/neighborhood-boundaries.htm)[^1]. This post focuses on Manhattan neighborhoods, as neighborhoods in other boroughs have relatively low volumes and differ from the average yellow cab trip in other fundamental ways (e.g., higher average distance traveled, low outbound:inbound ratio).
 
 This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cityofnewyork.us/view/gn7m-em8n). I used PostgreSQL, PostGIS, and R for the data management, mapping, analysis, and visuals (thanks to [Todd Schneider](https://github.com/toddwschneider/nyc-taxi-data) for his instructions). The charts in this post were made with [rCharts NVD3](http://ramnathv.github.io/posts/rcharts-nvd3/), and the maps were made with [ggmap](https://cran.r-project.org/web/packages/ggmap/index.html). The analysis in this post can be reproduced via my [GitHub repo](https://github.com/rtlee9/NYC_taxi).
@@ -28,18 +27,69 @@ This post uses 2014 yellow cab data sourced from [NYC OpenData](https://data.cit
 
 #### Table 1: top routes {#tab1}
 
-|Pickup neighborhood |Dropoff neighborhood |     Trips|
-|:-------------------|:--------------------|---------:|
-|Upper East Side     |Upper East Side      | 6,842,026|
-|Midtown             |Midtown              | 5,353,220|
-|Upper West Side     |Upper West Side      | 3,975,588|
-|Upper East Side     |Midtown              | 3,841,041|
-|Midtown             |Upper East Side      | 3,674,126|
-|Garment District    |Midtown              | 2,325,275|
-|Midtown             |Upper West Side      | 2,144,275|
-|Midtown             |Gramercy             | 2,123,459|
-|Upper West Side     |Midtown              | 2,074,491|
-|Gramercy            |Midtown              | 2,031,802|
+<div class="table-responsive">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Pickup neighborhood</th>
+      <th style="text-align: left">Dropoff neighborhood</th>
+      <th style="text-align: right">Trips</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Upper East Side</td>
+      <td style="text-align: left">Upper East Side</td>
+      <td style="text-align: right">6,842,026</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: right">5,353,220</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Upper West Side</td>
+      <td style="text-align: left">Upper West Side</td>
+      <td style="text-align: right">3,975,588</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Upper East Side</td>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: right">3,841,041</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: left">Upper East Side</td>
+      <td style="text-align: right">3,674,126</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Garment District</td>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: right">2,325,275</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: left">Upper West Side</td>
+      <td style="text-align: right">2,144,275</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: left">Gramercy</td>
+      <td style="text-align: right">2,123,459</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Upper West Side</td>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: right">2,074,491</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gramercy</td>
+      <td style="text-align: left">Midtown</td>
+      <td style="text-align: right">2,031,802</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 Each of these three neighborhoods are geographically large, and likely contain more  people available for pickup than other neighborhoods. Additionally, depending on the destination, public transportation from these neighborhoods can be tricky[^2]. Lastly, it's conceivable that people in these neighborhoods may differ from people in other neighborhoods in a way that increases their propensity to take cabs (e.g., disposable income, preponderance of expense accounts, value of time).
 
@@ -5943,13 +5993,50 @@ This party index identifies neighborhoods where more trips leave a given neighbo
 
 #### Table 2: Top 5 party neighborhoods
 
-|Neighborhood      |Trips out:in ratio |Outbound trips |Inbound trips |
-|:-----------------|:------------------|:--------------|:-------------|
-|Lower East Side   |2.1                |838,364        |390,667       |
-|Little Italy      |2.0                |196,477        |97,469        |
-|West Village      |1.8                |535,312        |291,217       |
-|East Village      |1.7                |981,213        |566,563       |
-|Greenwich Village |1.7                |718,556        |419,599       |
+<div class="table-responsive">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Neighborhood</th>
+      <th style="text-align: left">Trips out:in ratio</th>
+      <th style="text-align: left">Outbound trips</th>
+      <th style="text-align: left">Inbound trips</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Lower East Side</td>
+      <td style="text-align: left">2.1</td>
+      <td style="text-align: left">838,364</td>
+      <td style="text-align: left">390,667</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Little Italy</td>
+      <td style="text-align: left">2.0</td>
+      <td style="text-align: left">196,477</td>
+      <td style="text-align: left">97,469</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">West Village</td>
+      <td style="text-align: left">1.8</td>
+      <td style="text-align: left">535,312</td>
+      <td style="text-align: left">291,217</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">East Village</td>
+      <td style="text-align: left">1.7</td>
+      <td style="text-align: left">981,213</td>
+      <td style="text-align: left">566,563</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Greenwich Village</td>
+      <td style="text-align: left">1.7</td>
+      <td style="text-align: left">718,556</td>
+      <td style="text-align: left">419,599</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 ### Most / least diverse {#diversity}
