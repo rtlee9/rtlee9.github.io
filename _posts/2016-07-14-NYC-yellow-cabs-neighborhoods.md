@@ -722,6 +722,12 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
       margin-right: auto;
       height: 600px;
     }  
+    .tick line{
+      opacity: 0.15;
+    }
+    .y1 .tick line{
+      display: none;
+    }
     &lt;/style&gt;
 
   &lt;/head&gt;
@@ -749,7 +755,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
  &quot;type&quot;: &quot;line&quot;,
 &quot;yAxis&quot;:      2
 },
-&quot;Difference (Harlem - Manhattan)&quot;: {
+&quot;Difference: Harlem - Manhattan&quot;: {
  &quot;type&quot;: &quot;bar&quot;,
 &quot;yAxis&quot;:      2
 },
@@ -4293,1176 +4299,1176 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              1,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002744777581015
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         1.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001834040011865
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         1.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007336186999055
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          1.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001127481008481
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         1.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002087513242104
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         1.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002222717268431
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           1.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002580847365588
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         1.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003242385865343
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         1.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003703242806705
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          1.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.005378709504264
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         1.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.005477106765255
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         1.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003914131489347
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            1.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002454136647498
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         1.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002500461361138
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         1.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001782491538575
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          1.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0006063259892549
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         1.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007115033718911
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         1.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002554573581849
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           1.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001451602862957
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         1.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0005733470318888
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         1.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001171840569208
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          1.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001548449877666
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         1.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002187562100505
 },
 {
  &quot;dayofweek&quot;:              1,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         1.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002899658252699
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              2,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002694188242889
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         2.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001767038937317
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         2.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00111021050846
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          2.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0008250874651514
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         2.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001141142148327
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         2.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001969359788367
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           2.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00320410925939
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         2.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.005886632243475
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         2.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003288508564927
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          2.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001622745262021
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         2.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002372026384591
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         2.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002129254150944
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            2.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0019427461544
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         2.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001518151724927
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         2.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001948142449496
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          2.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002113132406323
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         2.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001623857152172
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         2.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -1.958002585667e-05
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           2.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001598013071994
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         2.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002917803586416
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         2.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002095252471912
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          2.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001242398427985
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         2.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0005933516066578
 },
 {
  &quot;dayofweek&quot;:              2,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         2.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0009697401163525
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              3,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001754720708482
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         3.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001540720726215
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         3.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001036551784972
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          3.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007411333371143
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         3.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001028303361504
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         3.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001704641733573
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           3.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002873725351044
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         3.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.005873207352239
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         3.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00307644793242
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          3.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002165130080399
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         3.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.003060692206842
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         3.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002809292622022
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            3.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00250249444549
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         3.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002206116993082
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         3.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002459043574671
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          3.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002593660737468
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         3.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001427208635866
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         3.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0005074097868465
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           3.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001395803174072
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         3.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00323375070451
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         3.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002797440398815
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          3.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002324423519727
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         3.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001487595851484
 },
 {
  &quot;dayofweek&quot;:              3,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         3.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0003937719339837
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              4,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001144033428543
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         4.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001192064265051
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         4.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0008129710188333
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          4.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0006210544897241
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         4.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0009088597585185
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         4.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001554838551504
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           4.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003267195082537
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         4.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.006436148627006
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         4.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003191549463863
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          4.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001797610870487
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         4.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002890350183536
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         4.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.003009042997523
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            4.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00259637077693
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         4.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002219759466377
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         4.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002655414243402
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          4.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002699270987034
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         4.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001498233273433
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         4.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001400092749476
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           4.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0001723273444144
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         4.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00233167634253
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         4.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002498314210719
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          4.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001530043240142
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         4.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0009820437660744
 },
 {
  &quot;dayofweek&quot;:              4,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         4.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0002747202852985
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007347363780808
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         5.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.000857581836719
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         5.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007957903871347
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          5.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.000607216839931
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         5.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0008981248137385
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         5.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001687025019882
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           5.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00339394544755
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         5.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.006941251337602
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         5.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003498043057246
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          5.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001883590314164
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         5.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002885096685692
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         5.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0028045768553
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            5.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002572646911389
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         5.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002155340726282
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         5.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002402353925383
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          5.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00231997718186
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         5.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001023948543913
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         5.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001687850605323
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           5.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0003384333166478
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         5.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.00227493398817
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         5.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002218430076817
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          5.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001602985856076
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         5.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0007791663038646
 },
 {
  &quot;dayofweek&quot;:              5,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         5.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0006462478999677
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              6,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007614776344057
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         6.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.000733063901447
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         6.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0006222393798043
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          6.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007484066672162
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         6.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001205006424515
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         6.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002034928146911
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           6.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003690565010736
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         6.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.007526422594925
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         6.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.004186098376255
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          6.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001274583531696
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         6.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002322424826279
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         6.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.002233221990804
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            6.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.001513544542088
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         6.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0007690102854713
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         6.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.000524478649066
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          6.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0007811947577357
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         6.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -3.544578542012e-05
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         6.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003413468296292
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           6.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002427537643518
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         6.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0002615007675192
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         6.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0008879297855284
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          6.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0005730247544449
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         6.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 6.27062381967e-05
 },
 {
  &quot;dayofweek&quot;:              6,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         6.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002009811532519
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              0,
 &quot;wday_hour&quot;:              7,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00278140482237
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              1,
 &quot;wday_hour&quot;:         7.0417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001846682389179
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              2,
 &quot;wday_hour&quot;:         7.0833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001030445976926
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              3,
 &quot;wday_hour&quot;:          7.125,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001098782529746
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              4,
 &quot;wday_hour&quot;:         7.1667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002079904812123
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              5,
 &quot;wday_hour&quot;:         7.2083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002461519097663
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              6,
 &quot;wday_hour&quot;:           7.25,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002914444156449
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              7,
 &quot;wday_hour&quot;:         7.2917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.003491723570183
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              8,
 &quot;wday_hour&quot;:         7.3333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.004617395703129
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:              9,
 &quot;wday_hour&quot;:          7.375,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.004163171240106
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             10,
 &quot;wday_hour&quot;:         7.4167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002803550881422
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             11,
 &quot;wday_hour&quot;:         7.4583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001323239151735
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             12,
 &quot;wday_hour&quot;:            7.5,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.001059782165462
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             13,
 &quot;wday_hour&quot;:         7.5417,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0008223204570642
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             14,
 &quot;wday_hour&quot;:         7.5833,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0001721380184489
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             15,
 &quot;wday_hour&quot;:          7.625,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0003949933429026
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             16,
 &quot;wday_hour&quot;:         7.6667,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0003655339282627
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             17,
 &quot;wday_hour&quot;:         7.7083,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.00200077454461
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             18,
 &quot;wday_hour&quot;:           7.75,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007709541914124
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             19,
 &quot;wday_hour&quot;:         7.7917,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -9.638974862988e-05
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             20,
 &quot;wday_hour&quot;:         7.8333,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0003576202499805
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             21,
 &quot;wday_hour&quot;:          7.875,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: -0.0001122631772461
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             22,
 &quot;wday_hour&quot;:         7.9167,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.0007854544987944
 },
 {
  &quot;dayofweek&quot;:              7,
 &quot;pick_hour&quot;:             23,
 &quot;wday_hour&quot;:         7.9583,
-&quot;variable&quot;: &quot;Difference (Harlem - Manhattan)&quot;,
+&quot;variable&quot;: &quot;Difference: Harlem - Manhattan&quot;,
 &quot;value&quot;: 0.002389999144068
 }
 ]
@@ -5488,6 +5494,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
           //.x(function(d) { return d[opts.x] })
           //.y(function(d) { return d[opts.y] })
           .height(600)
+	  .margin({top: 0, right: 35, bottom: 50, left: 30})
 
         chart.xAxis
   .tickFormat(function(d) {
@@ -5498,7 +5505,7 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
 
         chart.yDomain2( [-0.01, 0.03] );
         chart.yAxis2.tickFormat(d3.format(&#039;,.1%&#039;))
-        chart.yDomain1 ( [ 0, .52] );
+        chart.yDomain1 ( [ 0, .55] );
         chart.yAxis1.tickFormat(d3.format(&#039;,.0%&#039;))
 
        d3.select(&#039;#&#039; + opts.id)
@@ -5506,6 +5513,10 @@ Card usage for NYC yellow cabs peaks during weekday commuting hours; cash fares 
         .datum(data)
         .transition().duration(350)
         .call(chart);
+
+	d3.select(&quot;.nv-legend&quot;)
+	  .attr(&quot;transform&quot;, &quot;translate(15,0)&quot;);
+
        nv.utils.windowResize(chart.update);
        return chart;
       });
