@@ -19,36 +19,267 @@ where $$P^*_n = \frac{P_n}{\sum_{i=1}^{N} P_i}$$ is the share of the sum price o
 ### Real example: May 27, 2016
 The following table illustrates how the DJDI is calculated, stock-by-stock, for May 27, 2016:
 
-|Ticker |Market Cap (BN) |[M] Share of sum market cap |Price   |[P] Share of sum price |Absolute difference (P - M) |
-|:------|:---------------|:---------------------------|:-------|:----------------------|:---------------------------|
-|AAPL   |$549.66         |10.21%                      |$100.35 |3.85%                  |6.37%                       |
-|AXP    |$62.31          |1.16%                       |$65.52  |2.51%                  |1.35%                       |
-|BA     |$82.31          |1.53%                       |$129.22 |4.95%                  |3.42%                       |
-|CAT    |$42.02          |0.78%                       |$71.96  |2.76%                  |1.98%                       |
-|CSCO   |$145.46         |2.70%                       |$28.92  |1.11%                  |1.59%                       |
-|CVX    |$192.28         |3.57%                       |$102.02 |3.91%                  |0.34%                       |
-|DD     |$58.67          |1.09%                       |$67.17  |2.57%                  |1.48%                       |
-|DIS    |$162.71         |3.02%                       |$100.29 |3.84%                  |0.82%                       |
-|GE     |$276.97         |5.15%                       |$30.12  |1.15%                  |3.99%                       |
-|GS     |$66.27          |1.23%                       |$159.53 |6.11%                  |4.88%                       |
-|HD     |$166.62         |3.10%                       |$133.94 |5.13%                  |2.04%                       |
-|IBM    |$146.72         |2.73%                       |$152.84 |5.86%                  |3.13%                       |
-|INTC   |$149.07         |2.77%                       |$31.57  |1.21%                  |1.56%                       |
-|JNJ    |$310.99         |5.78%                       |$113.06 |4.33%                  |1.45%                       |
-|JPM    |$239.26         |4.45%                       |$65.43  |2.51%                  |1.94%                       |
-|KO     |$193.73         |3.60%                       |$44.78  |1.72%                  |1.88%                       |
-|MCD    |$108.20         |2.01%                       |$123.25 |4.72%                  |2.71%                       |
-|MMM    |$102.43         |1.90%                       |$168.89 |6.47%                  |4.57%                       |
-|MRK    |$156.34         |2.91%                       |$56.48  |2.16%                  |0.74%                       |
-|MSFT   |$411.26         |7.64%                       |$52.32  |2.00%                  |5.64%                       |
-|NKE    |$94.65          |1.76%                       |$56.19  |2.15%                  |0.39%                       |
-|PFE    |$209.90         |3.90%                       |$34.61  |1.33%                  |2.57%                       |
-|PG     |$216.75         |4.03%                       |$81.43  |3.12%                  |0.91%                       |
-|TRV    |$33.39          |0.62%                       |$114.18 |4.37%                  |3.75%                       |
-|UNH    |$127.41         |2.37%                       |$134.00 |5.13%                  |2.77%                       |
-|UTX    |$84.32          |1.57%                       |$100.76 |3.86%                  |2.29%                       |
-|V      |$189.96         |3.53%                       |$79.66  |3.05%                  |0.48%                       |
-|VZ     |$206.34         |3.83%                       |$50.62  |1.94%                  |1.89%                       |
-|WMT    |$222.07         |4.13%                       |$70.75  |2.71%                  |1.42%                       |
-|XOM    |$373.24         |6.94%                       |$90.01  |3.45%                  |3.49%                       |
-|DJDI   |                |                            |        |                       |35.9%                       |
+<div class="table-responsive">
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ticker</th>
+      <th style="text-align: left">Market Cap (BN)</th>
+      <th style="text-align: left">[M] Share of sum market cap</th>
+      <th style="text-align: left">Price</th>
+      <th style="text-align: left">[P] Share of sum price</th>
+      <th style="text-align: left">Absolute difference (P - M)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">AAPL</td>
+      <td style="text-align: left">$549.66</td>
+      <td style="text-align: left">10.21%</td>
+      <td style="text-align: left">$100.35</td>
+      <td style="text-align: left">3.85%</td>
+      <td style="text-align: left">6.37%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AXP</td>
+      <td style="text-align: left">$62.31</td>
+      <td style="text-align: left">1.16%</td>
+      <td style="text-align: left">$65.52</td>
+      <td style="text-align: left">2.51%</td>
+      <td style="text-align: left">1.35%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">BA</td>
+      <td style="text-align: left">$82.31</td>
+      <td style="text-align: left">1.53%</td>
+      <td style="text-align: left">$129.22</td>
+      <td style="text-align: left">4.95%</td>
+      <td style="text-align: left">3.42%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CAT</td>
+      <td style="text-align: left">$42.02</td>
+      <td style="text-align: left">0.78%</td>
+      <td style="text-align: left">$71.96</td>
+      <td style="text-align: left">2.76%</td>
+      <td style="text-align: left">1.98%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CSCO</td>
+      <td style="text-align: left">$145.46</td>
+      <td style="text-align: left">2.70%</td>
+      <td style="text-align: left">$28.92</td>
+      <td style="text-align: left">1.11%</td>
+      <td style="text-align: left">1.59%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">CVX</td>
+      <td style="text-align: left">$192.28</td>
+      <td style="text-align: left">3.57%</td>
+      <td style="text-align: left">$102.02</td>
+      <td style="text-align: left">3.91%</td>
+      <td style="text-align: left">0.34%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DD</td>
+      <td style="text-align: left">$58.67</td>
+      <td style="text-align: left">1.09%</td>
+      <td style="text-align: left">$67.17</td>
+      <td style="text-align: left">2.57%</td>
+      <td style="text-align: left">1.48%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DIS</td>
+      <td style="text-align: left">$162.71</td>
+      <td style="text-align: left">3.02%</td>
+      <td style="text-align: left">$100.29</td>
+      <td style="text-align: left">3.84%</td>
+      <td style="text-align: left">0.82%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GE</td>
+      <td style="text-align: left">$276.97</td>
+      <td style="text-align: left">5.15%</td>
+      <td style="text-align: left">$30.12</td>
+      <td style="text-align: left">1.15%</td>
+      <td style="text-align: left">3.99%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GS</td>
+      <td style="text-align: left">$66.27</td>
+      <td style="text-align: left">1.23%</td>
+      <td style="text-align: left">$159.53</td>
+      <td style="text-align: left">6.11%</td>
+      <td style="text-align: left">4.88%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HD</td>
+      <td style="text-align: left">$166.62</td>
+      <td style="text-align: left">3.10%</td>
+      <td style="text-align: left">$133.94</td>
+      <td style="text-align: left">5.13%</td>
+      <td style="text-align: left">2.04%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IBM</td>
+      <td style="text-align: left">$146.72</td>
+      <td style="text-align: left">2.73%</td>
+      <td style="text-align: left">$152.84</td>
+      <td style="text-align: left">5.86%</td>
+      <td style="text-align: left">3.13%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">INTC</td>
+      <td style="text-align: left">$149.07</td>
+      <td style="text-align: left">2.77%</td>
+      <td style="text-align: left">$31.57</td>
+      <td style="text-align: left">1.21%</td>
+      <td style="text-align: left">1.56%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JNJ</td>
+      <td style="text-align: left">$310.99</td>
+      <td style="text-align: left">5.78%</td>
+      <td style="text-align: left">$113.06</td>
+      <td style="text-align: left">4.33%</td>
+      <td style="text-align: left">1.45%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JPM</td>
+      <td style="text-align: left">$239.26</td>
+      <td style="text-align: left">4.45%</td>
+      <td style="text-align: left">$65.43</td>
+      <td style="text-align: left">2.51%</td>
+      <td style="text-align: left">1.94%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">KO</td>
+      <td style="text-align: left">$193.73</td>
+      <td style="text-align: left">3.60%</td>
+      <td style="text-align: left">$44.78</td>
+      <td style="text-align: left">1.72%</td>
+      <td style="text-align: left">1.88%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MCD</td>
+      <td style="text-align: left">$108.20</td>
+      <td style="text-align: left">2.01%</td>
+      <td style="text-align: left">$123.25</td>
+      <td style="text-align: left">4.72%</td>
+      <td style="text-align: left">2.71%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MMM</td>
+      <td style="text-align: left">$102.43</td>
+      <td style="text-align: left">1.90%</td>
+      <td style="text-align: left">$168.89</td>
+      <td style="text-align: left">6.47%</td>
+      <td style="text-align: left">4.57%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MRK</td>
+      <td style="text-align: left">$156.34</td>
+      <td style="text-align: left">2.91%</td>
+      <td style="text-align: left">$56.48</td>
+      <td style="text-align: left">2.16%</td>
+      <td style="text-align: left">0.74%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">MSFT</td>
+      <td style="text-align: left">$411.26</td>
+      <td style="text-align: left">7.64%</td>
+      <td style="text-align: left">$52.32</td>
+      <td style="text-align: left">2.00%</td>
+      <td style="text-align: left">5.64%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">NKE</td>
+      <td style="text-align: left">$94.65</td>
+      <td style="text-align: left">1.76%</td>
+      <td style="text-align: left">$56.19</td>
+      <td style="text-align: left">2.15%</td>
+      <td style="text-align: left">0.39%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PFE</td>
+      <td style="text-align: left">$209.90</td>
+      <td style="text-align: left">3.90%</td>
+      <td style="text-align: left">$34.61</td>
+      <td style="text-align: left">1.33%</td>
+      <td style="text-align: left">2.57%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PG</td>
+      <td style="text-align: left">$216.75</td>
+      <td style="text-align: left">4.03%</td>
+      <td style="text-align: left">$81.43</td>
+      <td style="text-align: left">3.12%</td>
+      <td style="text-align: left">0.91%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TRV</td>
+      <td style="text-align: left">$33.39</td>
+      <td style="text-align: left">0.62%</td>
+      <td style="text-align: left">$114.18</td>
+      <td style="text-align: left">4.37%</td>
+      <td style="text-align: left">3.75%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UNH</td>
+      <td style="text-align: left">$127.41</td>
+      <td style="text-align: left">2.37%</td>
+      <td style="text-align: left">$134.00</td>
+      <td style="text-align: left">5.13%</td>
+      <td style="text-align: left">2.77%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UTX</td>
+      <td style="text-align: left">$84.32</td>
+      <td style="text-align: left">1.57%</td>
+      <td style="text-align: left">$100.76</td>
+      <td style="text-align: left">3.86%</td>
+      <td style="text-align: left">2.29%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">V</td>
+      <td style="text-align: left">$189.96</td>
+      <td style="text-align: left">3.53%</td>
+      <td style="text-align: left">$79.66</td>
+      <td style="text-align: left">3.05%</td>
+      <td style="text-align: left">0.48%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">VZ</td>
+      <td style="text-align: left">$206.34</td>
+      <td style="text-align: left">3.83%</td>
+      <td style="text-align: left">$50.62</td>
+      <td style="text-align: left">1.94%</td>
+      <td style="text-align: left">1.89%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WMT</td>
+      <td style="text-align: left">$222.07</td>
+      <td style="text-align: left">4.13%</td>
+      <td style="text-align: left">$70.75</td>
+      <td style="text-align: left">2.71%</td>
+      <td style="text-align: left">1.42%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XOM</td>
+      <td style="text-align: left">$373.24</td>
+      <td style="text-align: left">6.94%</td>
+      <td style="text-align: left">$90.01</td>
+      <td style="text-align: left">3.45%</td>
+      <td style="text-align: left">3.49%</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DJDI</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">35.9%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
