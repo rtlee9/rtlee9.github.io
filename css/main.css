@@ -98,7 +98,7 @@ img {
 
 .navbar-custom {
   background: #F5F5F5;
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid #e0e0e0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -112,6 +112,11 @@ img {
 .navbar-custom .nav li a {
   font-weight: 800;
   color: #404040;
+  border-bottom: 3px solid #F5F5F5;
+}
+
+.navbar-custom .navbar-brand {
+  margin-top: 3px;
 }
 
 .navbar-custom .navbar-brand:hover,
@@ -119,11 +124,12 @@ img {
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
   color: #0085a1;
+  border-bottom: 3px solid #0085a1;
 }
 
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    padding: 6px 0;
+    padding: 6px 0 0 0;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
     -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
     transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -244,7 +250,7 @@ img {
 footer {
   padding: 30px 0;
   background: #F5F5F5;
-  border-top: 1px #EAEAEA solid;
+  border-top: 1px #0085a1 solid;
   margin-top: 50px;
   font-size: 14px;
 }
@@ -260,6 +266,7 @@ footer .list-inline {
 footer .copyright {
   font-family: Open Sans;
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 0;
 }
 footer .theme-by {
@@ -269,7 +276,7 @@ footer .theme-by {
 
 @media only screen and (min-width: 768px) {
   footer {
-    padding: 50px 0;
+    padding: 30px 0;
   }
   footer .footer-links {
     font-size: 18px;
