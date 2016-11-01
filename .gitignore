@@ -5,6 +5,7 @@ _site
 .Rhistory
 public/
 vendor/
+.jekyll-metadata
 
 # general
 .DS_Store
