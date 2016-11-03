@@ -29,7 +29,7 @@ a:focus {
   color: #0085a1;
 }
 blockquote {
-  color: #808080;
+  color: #676767;
   font-style: italic;
 }
 blockquote p:first-child {
@@ -754,4 +754,7 @@ canvas {
 
 table ul {
   margin-left: -15px;
+}
+blockquote mark {
+  color: #5a5a5a;
 }
