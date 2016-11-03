@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.1/nv.d3.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.7.1/nv.d3.min.js"></script>
+    <style type="text/css">
+.nvd3 .nv-axis.nv-x path.domain {
+  stroke-opacity: 1;
+  stroke-color: black;
+}
+.nvd3 .tick line {
+  display: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="container" class="svg-container"></div>
+    <script>
+
+data_linechart=[{"values": [{"y": 0.0, "x": 0}, {"y": 0.0967741935483871, "x": 1}, {"y": 0.24731182795698925, "x": 2}, {"y": 0.5053763440860215, "x": 3}, {"y": 0.7634408602150538, "x": 4}, {"y": 0.9032258064516129, "x": 5}, {"y": 0.9543010752688172, "x": 6}, {"y": 0.9758064516129032, "x": 7}, {"y": 0.978494623655914, "x": 8}, {"y": 0.9758064516129032, "x": 9}], "key": "Percent new", "yAxis": "1"}];
+
+nv.addGraph(function() {
+  var chart = nv.models.lineChart()
+    .useInteractiveGuideline(true)
+    ;
+  chart.margin({top: 30, right: 60, bottom: 40, left: 60});
+  chart.interactiveLayer.tooltip.contentGenerator(function(data) {
+    return (data.series[0]['value'] * 100).toFixed(0) + '% percent new<br/>Sequence length ' + data['value'];
+  });
+  var datum = data_linechart;
+
+  chart.xAxis
+    .axisLabel('Sequence length')
+    .tickFormat(d3.format(',r'));
+  chart.yAxis
+    .axisLabel('% of all sample sequences not in original transcripts')
+    .tickFormat(d3.format('.0%'));
+
+  chart.showLegend(false);
+
+  var svg = d3.select('div#container')
+    .append("svg")
+    .attr("width", "100%")
+    .attr("height", "350px")
+    .datum(datum)
+    .transition().duration(500)
+    .call(chart)
+    ;
+
+  nv.utils.windowResize(function(){ chart.update(); });
+
+  return chart;
+
+});
+
+    </script>
+  </body>
+</html>
