@@ -685,15 +685,15 @@ td.gutter {
 }
 
 @media only screen and (max-width: 433px) {
-    .btn-social {
-        display: none;
-    }
+  .btn-social {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 434px) {
-    .btn-social-icon {
-        display: none;
-    }
+  .btn-social-icon {
+    display: none;
+  }
 }
 
 /* --- 404 buttons --- */
@@ -709,14 +709,14 @@ td.gutter {
 }
 
 canvas {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .table-responsive {
@@ -724,24 +724,24 @@ canvas {
 }
 
 ::-webkit-scrollbar {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 ::-webkit-scrollbar:vertical {
-    width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar:horizontal {
-    height: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, .5);
-    border-radius: 10px;
-    border: 2px solid #ffffff;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 10px;
+  border: 2px solid #ffffff;
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #ffffff;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
