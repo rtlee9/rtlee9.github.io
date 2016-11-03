@@ -751,3 +751,7 @@ canvas {
   border-radius: 10px;
   background-color: #ffffff;
 }
+
+table ul {
+  margin-left: -15px;
+}
