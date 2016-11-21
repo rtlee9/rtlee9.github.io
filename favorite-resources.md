@@ -24,6 +24,7 @@ I've come across a number of fantastic online resources over the last several mo
 
 ## Deep learning
 * [Neural Networks and Deep Learning \| Michael Nielsen](http://neuralnetworksanddeeplearning.com/)
+* [Neural Networks Part 3: Learning and Evaluation \| Andrej Karpathy](http://cs231n.github.io/neural-networks-3/)
 * [MNIST For ML Beginners \| TensorFlow](https://www.tensorflow.org/versions/r0.11/tutorials/mnist/beginners/index.html#mnist-for-ml-beginners)
 * [Implementing a Neural Network from Scratch in Python \| WildML](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
 * [Up and Down the Ladder of Abstraction \| Bret Victor](http://worrydream.com/LadderOfAbstraction/)
