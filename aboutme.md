@@ -15,6 +15,4 @@ I'll be using this blog as an opportunity to learn new technical things and to l
 > <div align="right">&mdash; Ecclesiastes 11:2</div>
 
 # About the author
-I am a data science product manager working in the insurance industry, with an academic background in economics and computer science. Prior to my current job, I was a management consultant to the financial services industry. I live and work in New York City, and am a native Californian.
-
-In my free time I enjoy traveling, running, skiing, surfing, longboarding, playing video games, playing guitar, playing squash, playing spikeball, and learning new things.
+I am a data science product manager currently working in the insurance industry. I solve complex, real-world problems by exploring data, building machine learning models, and developing software. I currently live and work in New York City, and am a native Californian. My personal website can be found [here](https://ryanlee.io/).
