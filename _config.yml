@@ -36,6 +36,7 @@ author:
   name: Ryan Lee
   email: "info@eightportions.com"
   facebook:
+  home: https://ryanlee.io
   github: rtlee9
   gitlab: rtlee
   twitter: eightportions
@@ -46,10 +47,11 @@ author:
 footer-links-active:
   rss: false
   facebook: false
+  home: true
   email: true
   twitter: true
   github: true
-  gitlab: true
+  gitlab: false
   linkedin: true
   stackoverflow: false
   instagram: false
