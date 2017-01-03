@@ -29,6 +29,7 @@ I've come across a number of fantastic online resources over the last several mo
 * [Neural Networks Part 3: Learning and Evaluation \| Andrej Karpathy](http://cs231n.github.io/neural-networks-3/)
 * [MNIST For ML Beginners \| TensorFlow](https://www.tensorflow.org/versions/r0.11/tutorials/mnist/beginners/index.html#mnist-for-ml-beginners)
 * [Implementing a Neural Network from Scratch in Python \| WildML](http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/)
+* [A Guide to Deep Learning \| YN<sup>2</sup>](http://yerevann.com/a-guide-to-deep-learning/)
 * [Up and Down the Ladder of Abstraction \| Bret Victor](http://worrydream.com/LadderOfAbstraction/)
 * [Deep Learning, NLP, and Representations \| Colah's blog](http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/)
 * [Conv Nets: A Modular Perspective \| Colah's blog](http://colah.github.io/posts/2014-07-Conv-Nets-Modular/)
