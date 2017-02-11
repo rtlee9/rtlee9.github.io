@@ -3,6 +3,7 @@ layout: page
 title: My favorite resources
 subtitle: Guides, introductions, and cheat sheets
 bigimg: /img/books.jpg
+overlay: 200,150,100,0.3
 ---
 
 I've come across a number of fantastic online resources over the last several months. I've posted them here in the hope that they can be as helpful to you as they were to me. Please let me know if you have any additional resources that you think would be a good addition.
