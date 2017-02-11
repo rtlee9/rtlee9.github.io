@@ -28,6 +28,7 @@
     <canvas id="{{page.gradient}}"></canvas>
     {% endif %}
 
+    <div class="overlay" style="background: {% if page.overlay %}rgba({{ page.overlay }}){% else %}rgba(0, 0, 0, 0){% endif %}">
     <div class="container">
 	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 h-spacing">
 	  <div class="{{ include.type }}-heading">
@@ -44,6 +45,7 @@
 	    <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
 	    {% endif %}
 	  </div>
+  </div>
       </div>
     </div>
     <span class='img-desc'></span>

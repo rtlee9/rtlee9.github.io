@@ -736,3 +736,10 @@ table ul {
 blockquote mark {
   color: #5a5a5a;
 }
+
+.overlay {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0 0;
+}
