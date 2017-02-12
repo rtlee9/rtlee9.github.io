@@ -2,6 +2,7 @@
 layout: page
 title: About
 bigimg: /img/Trunk.jpg
+overlay: 20,200,200,0.3
 headerUP: true
 ---
 # About Eight Portions
