@@ -75,7 +75,7 @@ pages:
 
 Once your CI config file is set up, change your repo name to `<GitLab_username>.gitlab.io`. If you have a __custom domain name__, then you'll need to:
 
-1. With your domain name registrar (e.g., [Namecheap](https://www.namecheap.com/)), drop your old _A Record(s)_[^5] and add a new one with the value of GitLab Pages' IP:	`104.208.235.32`
+1. With your domain name registrar (e.g., [Namecheap](https://www.namecheap.com/)), drop your old _A Record(s)_[^5] and add a new one with the value of GitLab Pages' IP: `52.167.214.135`
 1. Update your _CNAME Record_ with your domain name registrar to `<GitLab_username>.gitlab.io`
 1. Remove the _CNAME_ text file from your previous repo
 
