@@ -631,6 +631,19 @@ table tr th :last-child,
 table tr td :last-child {
   margin-bottom: 0;
 }
+table#osha-sic.data-table, table#osha-sic.data-table td, table#osha-sic.data-table tr {
+  border-left: none;
+  border-right: none;
+}
+table#osha-sic.data-table {
+  border-top: none;
+}
+table#osha-sic.data-table {
+  width: 100%;
+}
+table#osha-sic.data-table thead td{
+  font-weight: bold;
+}
 
 /* --- Code blocks --- */
 
@@ -690,6 +703,12 @@ td.gutter {
   .btn-social-icon {
     display: none;
   }
+}
+ul.dataset .btn {
+  margin: 5px 0;
+}
+ul.dataset .btn i.fa {
+  margin-right: 4px;
 }
 
 /* --- 404 buttons --- */

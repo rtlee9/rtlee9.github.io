@@ -16,6 +16,7 @@ description: "Ryan's personal blog an applied data science and various related t
 # List of links in the navigation bar
 navbar-links:
   Home: ""
+  Datasets: "datasets"
   Resources: "favorite-resources"
   About: "about"
 
@@ -161,6 +162,11 @@ prose:
           element: "checkbox"
           label: "Publish"
           help: "Check to publish post, uncheck to hide."
+
+collections:
+  datasets:
+    output: true
+    permalink: /datasets/:path/
 
 gems:
   - jekyll-paginate
