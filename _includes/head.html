@@ -8,6 +8,12 @@
   {% if page.subtitle %}
   <meta name="description" content="{{ page.subtitle }}">
   {% endif %}
+  
+  {% if page.custom_css %}
+  {% for stylesheet in page.custom_css %}
+  <link rel="stylesheet" href="{{ stylesheet }}" media="screen" type="text/css">
+  {% endfor %}
+  {% endif %}
 
   <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/main.css" />
@@ -15,6 +21,12 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
 
   <link rel="shortcut icon" href="/img/favicon.ico">
+
+  {% if page.custom_js %}
+  {% for js_file in page.custom_js %}
+  <script src='{{ js_file }}' type="text/javascript"></script>
+  {% endfor %}
+  {% endif %}
 
   {% if page.gradient %}
   <script src="/js/granim.min.js"></script>
