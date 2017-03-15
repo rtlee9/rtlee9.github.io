@@ -24,7 +24,7 @@ overlay: 20,100,200,0.2
     </p>
 
     <div class="post-entry">
-      {{ post.content | strip_html | xml_escape | truncatewords: 50 }}
+      {{ post.excerpt | strip_html | xml_escape | truncatewords: 40 }}
 	  <a href="{{ post.url | prepend: site.baseurl }}" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
