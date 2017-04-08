@@ -4,7 +4,7 @@ subtitle: Learning high dimensional company representations
 layout: post
 overlay: 50,110,170,0.7
 bigimg: /img/sides-of-a-skyscraper.jpg
-tags: [machine learning, deep learning, word vectors, paragraph vectors, representations, NLP, companies, SIC]
+tags: [machine learning, deep learning, transfer learning, word vectors, paragraph vectors, representations, NLP, SIC]
 ---
 
 In this post I introduce the _Company Vector_, a distributed representation of a company's core business activities. Company vectors are learned from business descriptions found in public SEC 10-K filings using an unsupervised learning algorithm called the _Paragraph Vector_. The learned vectors can be used to compare companies to each other and to support various machine learning tasks relating to company-centric analytics.
