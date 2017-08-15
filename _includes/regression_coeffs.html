@@ -1,0 +1,29 @@
+<body>
+  <div id="container1" class="svg-container"></div>
+  <script>
+  data_multibarchart1=[{"values": [{"y": 0.4366932931343245, "x": "MedInc"}, {"y": 0.009435778033237972, "x": "HouseAge"}, {"y": -0.10732204139090447, "x": "AveRooms"}, {"y": 0.645065693519812, "x": "AveBedrms"}, {"y": -3.976389421211576e-06, "x": "Population"}, {"y": -0.003786542654971, "x": "AveOccup"}, {"y": -0.42131437752714385, "x": "Latitude"}, {"y": -0.43451375467477743, "x": "Longitude"}], "key": "Raw features", "yAxis": "1"}, {"values": [{"y": 0.82961930428045, "x": "MedInc"}, {"y": 0.1187516512121425, "x": "HouseAge"}, {"y": -0.26552687950661974, "x": "AveRooms"}, {"y": 0.30569622980430833, "x": "AveBedrms"}, {"y": -0.0045030013126133445, "x": "Population"}, {"y": -0.039326266978148866, "x": "AveOccup"}, {"y": -0.8998856544145062, "x": "Latitude"}, {"y": -0.8705410023357302, "x": "Longitude"}], "key": "Scaled features", "yAxis": "1"}];
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.margin({top: 30, right: 60, bottom: 70, left: 60});
+    var datum = data_multibarchart1;
+    chart.yAxis.tickFormat(d3.format(',.2f'));
+    chart.showLegend(true)
+      .showControls(false)
+      .reduceXTicks(false)
+      .stacked(false);
+    chart.xAxis.rotateLabels(-90);
+    // chart.xAxis.tickPadding(50);
+    // chart.xAxis.margin({top: 50, right: 50, bottom: 50, left: 50});
+
+    d3.select('div#container1')
+      .append("svg")
+      .datum(datum)
+      .attr("width", "100%")
+      .attr("height", "350px")
+      .transition().duration(500)
+      .call(chart);
+    nv.utils.windowResize(function(){ chart.update(); });
+    return chart;
+  });
+  </script>
+</body>

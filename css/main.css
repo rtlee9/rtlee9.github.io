@@ -774,3 +774,19 @@ blockquote mark {
   width: 100%;
   margin: 0 0;
 }
+
+
+/* --- nvd3 --- */
+
+.tick line {
+  display: none;
+}
+
+@media only screen and (min-width: 700px) {
+  div.svg-container > svg g.nv-x g.tick > text {
+    transform: translateX(30px) rotate(0deg);
+  }
+  div.svg-container {
+    margin-bottom: -50px;
+  }
+}

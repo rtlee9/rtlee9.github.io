@@ -1,0 +1,55 @@
+<body>
+  <div id="container2" class="svg-container"></div>
+  <script>
+  data_multibarchart2=[
+  {
+    "values": [
+      {"y": 0.754645760249, "x": "MedInc"},
+      {"y": 0.0763376651498, "x": "HouseAge"},
+      {"y": -0.123460804302, "x": "AveRooms"},
+      {"y": 0.487683554097, "x": "AveBedrms"},
+      {"y": 0.0321852748662, "x": "Population"},
+      {"y": -4.30662373642, "x": "AveOccup"},
+      {"y": -1.39631459128, "x": "Latitude"},
+      {"y": -1.15165234622, "x": "Longitude"}
+    ],
+    "key": "Average buyer",
+    "yAxis": "1"
+  },
+  {
+    "values": [
+      {"y": 0.321452847159, "x": "MedInc"},
+      {"y": -0.10550588855, "x": "HouseAge"},
+      {"y": 0.000486408040329, "x": "AveRooms"},
+      {"y": -0.382515320143, "x": "AveBedrms"},
+      {"y": 0.132410181705, "x": "Population"},
+      {"y": -0.816192154665, "x": "AveOccup"},
+      {"y": -0.537460226299, "x": "Latitude"},
+      {"y": -0.410284889482, "x": "Longitude"}
+    ],
+    "key": "Randomly selected buyer",
+    "yAxis": "1"
+  }
+  ];
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.margin({top: 30, right: 60, bottom: 70, left: 60});
+    var datum = data_multibarchart2;
+    chart.yAxis.tickFormat(d3.format(',.2f'));
+    chart.showLegend(true)
+      .showControls(false)
+      .reduceXTicks(false)
+      .stacked(false);
+    chart.xAxis.rotateLabels(-90);
+    d3.select('div#container2')
+      .append("svg")
+      .datum(datum)
+      .attr("width", "100%")
+      .attr("height", "350px")
+      .transition().duration(500)
+      .call(chart);
+    nv.utils.windowResize(function(){ chart.update(); });
+    return chart;
+  });
+  </script>
+</body>
