@@ -94,7 +94,16 @@ nn = MLPRegressor(activation='logistic', hidden_layer_sizes=(200,), random_state
 nn.fit(X_scaled, dataset.target)
 {% endhighlight %}
 
-Now let's calculate the gradient for the neural net using the average home sale as the reference point:
+Now let's calculate the gradient for the neural net using the average home sale as the reference point. The following derivations assume a basic understanding of neural net mechanics, including backpropagation -- I'd suggest reading [this](http://neuralnetworksanddeeplearning.com/chap2.html) blog post if you find yourself in need of review.
+
+We can calculate the input gradient using the backpropagation algorithm, except we're going to be propagating the model estimate itself rather than the error. First, let $$C_0$$ denote the weight matrix that transforms the input vector $$x$$ to the hidden layer and $$C_1$$ denote the weight matrix that transforms the hidden layer to the output vector $$y$$[^4]. Using backpropagation, we can calculate the input gradient $$\frac{\partial{y}}{\partial{x}}$$ as follows:
+
+1. Calculate the partial derivative of the output vector $$y$$ with respect to the hidden layer activation vector $$a$$ as $$  \frac{\partial{y}}{\partial{a}} = C_1$$
+1. Calculate the partial derivative of the hidden layer activation vector $$a$$ with respect to the input vector $$x$$ as $$ \frac{\partial{a}}{\partial{x}} = C_0 \cdot \sigma'(x \cdot C_0) $$ by the chain rule
+1. Calculate the partial derivative of the output $$y$$ with respect to the input vector $$x$$ as $$ \frac{\partial{y}}{\partial{x}} = \frac{\partial{y}}{\partial{a}} \frac{\partial{a}}{\partial{x}}$$ by the chain rule
+
+where $$\sigma(z) = \frac{1}{1 + {e}^{-z}}$$ and $$\sigma' = \sigma(z) (1 - \sigma(z))$$ are the sigmoid and sigmoid derivative functions, respectively.
+
 {% highlight python linenos %}
 # Utility functions for calculating the gradient
 def sigmoid(z):
@@ -106,10 +115,16 @@ def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
 
 def calculate_nn_gradients(nn, sample):
-    """Calculate feature gradients."""
-    a1 = sample.dot(nn.coefs_[0]) + nn.intercepts_[0]
-    l1 = nn.coefs_[1].squeeze()
-    return nn.coefs_[0].dot(l1 * sigmoid_prime(a1))
+    """Calculate feature gradients for a nerual net with one hidden layer.
+    This function can be easily abstracted upon for neural nets with multiple hidden layers.
+    """
+    x = np.append(sample, 1)  # add a one to the input vector for the intercept
+    C0 = np.vstack([  # concatenate the vector of intercepts on to the coefficents matrix
+	nn.coefs_[0],
+	nn.intercepts_[0].reshape(1, -1)
+    ])
+    C1 = nn.coefs_[1].squeeze()
+    return C0.dot(sigmoid_prime(x.dot(C0)) * C1)
 
 # evaluate the gradient for the mean home sale
 sample_avg = np.zeros(X_scaled.shape[1])
@@ -131,7 +146,7 @@ print_coefficients(dataset.feature_names, gradients_rand)
 
 * increasing `MedInc` by one standard deviation will significantly increase the predicted house price
 * increasing `AveBedrms` by one standard deviation will increase the predicted house price to a lesser extent
-* increasing `AveOccup` by one standard deviation will decrease the predicted house price[^4]
+* increasing `AveOccup` by one standard deviation will decrease the predicted house price[^5]
 
 #### Figure 2: Sample neural net gradients {#fig2}
 {% include nn_gradients.html %}
@@ -147,4 +162,5 @@ While much could be done to improve the models themselves (e.g., feature generat
 [^1]: OpenAI recently published a great [blog post](https://blog.openai.com/adversarial-example-research/) on how these attacks can be done on computer vision models.
 [^2]: Scaling can also help model optimization convergence under certain algorithms such as stochastic gradient descent (SGD).
 [^3]: These assumptions are often violated in practice, but nevertheless gradients are still frequently useful for optimizing parameters; gradients are the basis of many oft-used optimization algorithms, such as SGD.
-[^4]: This relationship is substantially more negative under the neural net than under the linear regression, but varies widely over the feature space.
+[^4]: The following calculations assume the weight matrices contain the intercepts.
+[^5]: This relationship is substantially more negative under the neural net than under the linear regression, but varies widely over the feature space.
