@@ -10,10 +10,5 @@ Eight Portions is a blog about various applications of data science. It seeks to
 
 I'll be using this blog as an opportunity to learn new technical things and to learn new things about the world. Please feel free to leave feedback, and don't hesitate to suggest new topics -- my contact information can be found at the bottom of the page.
 
-> Give a portion to seven, or even to eight,<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for you know not what disaster may happen on earth.
->
-> <div align="right">&mdash; Ecclesiastes 11:2</div>
-
 # About the author
-I am a data scientist currently working in the insurance industry. I solve complex, real-world problems by exploring data, building machine learning models, and developing software. I currently live and work in New York City, and am a native Californian. My personal website can be found [here](https://ryanlee.io/).
+I am a data scientist currently working in health tech. I solve complex, real-world problems by exploring data, building machine learning models, developing software and working closely with other engineers and subject matter experts. I currently live and work in the San Francisco Bay Area. My personal website can be found [here](https://ryanlee.io/).
