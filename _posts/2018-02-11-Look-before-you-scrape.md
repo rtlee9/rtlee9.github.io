@@ -13,7 +13,7 @@ Web scraping is frequently used when no suitable public data can be found in a s
 * **More data:** API responses may contain more information than what is rendered in the HTML
 
 ### Toy problem
-Let's say you want to know how used car prices vary with mileage in your geographic area. You can't find an open dataset with the characteristics you need (e.g., recently updated, covers your geographic region) so you decide to go to an online used-car retailer, like [CarMax](https://www.carmax.com/) and scrape some data[^1]. Let's solve this problem the normal way first. We'll then assess this approach and find a hidden API that will allow us to tackle the problem much more efficiently.
+Let's say you want to know how used car prices vary with mileage in your geographic area. You can't find an open dataset with the characteristics you need (e.g., recently updated, covers your geographic region) so you decide to go to an online used-car retailer like [CarMax](https://www.carmax.com/) and scrape some data[^1]. Let's solve this problem the normal way first. We'll then assess this approach and find a hidden API that will allow us to tackle the problem much more efficiently.
 
 ### The hard way
 You read up on some BeautifulSoup tutorials, fire up your browser's developer console, take a look at the HTML from a CarMax search page, and write a small function to scrape some key details for you:
@@ -46,7 +46,7 @@ def get_carmax_page_web():
     ]
 {% endhighlight %}
 
-Note there are three steps here, each of which involves significant computational time or developer time:
+Note there are three steps here, each of which involves significant execution time or development time:
 
 1. request HTML: takes about 1.2 seconds response time
 2. extract relevant content from HTML: takes about 0.6 seconds execution time
