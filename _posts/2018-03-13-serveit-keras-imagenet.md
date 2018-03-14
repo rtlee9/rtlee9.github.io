@@ -28,8 +28,8 @@ from flask import request
 import requests
 from serveit.utils import make_serializable, get_bytes_to_image_callback
 
-# define a loader callback for the API to fetch the relevant data and a
-# preprocessor callback to convert to a format expected by the prediction function
+# define a loader callback for the API to fetch the relevant data and
+# preprocessor callbacks to map to a format expected by the model
 def loader():
     """Load image from URL, and preprocess for DenseNet."""
     url = request.args.get('url')  # read image URL as a request URL param
@@ -44,14 +44,14 @@ preprocessor = [bytes_to_image, densenet.preprocess_input]
 
 ...and now we're ready to start serving our image classifier:
 {% highlight python linenos %}
-# deploy model to a ModelServer
 from serveit.server import ModelServer
 
+# initialize a ModelServer
 server = ModelServer(
     model=model, predict=model.predict, data_loader=loader,
     preprocessor=preprocessor, postprocessor=densenet.decode_predictions)
 
-# start API
+# start serving
 server.serve()
 {% endhighlight %}
 
