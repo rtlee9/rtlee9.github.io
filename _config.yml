@@ -168,7 +168,7 @@ collections:
     output: true
     permalink: /datasets/:path/
 
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
