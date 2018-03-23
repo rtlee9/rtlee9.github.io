@@ -52,7 +52,7 @@ However, these models don't make full use of a recipe's entire information set a
 </li>
 
 <li>
-<a href="https://storage.googleapis.com/recipe-box/imgs.zip" download>
+<a href="https://github.com/rtlee9/recipe-box">
   <button type="button" class="btn btn-primary btn-lg">
     <i class="fa fa-lg fa-download"></i>
       Download recipe images
