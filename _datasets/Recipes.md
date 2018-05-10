@@ -30,8 +30,9 @@ A typical recipe looks something like this:
 
 <img src="/img/guacamole.jpeg" style="width: 300px;"/>
 
-This dataset is particularly interesting for machine learning because each recipe contains multiple elements, each of which provides additional information about the recipe. Current deep learning models excel at learning the relationship between one element and a single other element (e.g., image-to-text, text-to-image, text-to-summarized-text). I've used this dataset for two deep learning mini-projects so far:
+This dataset is particularly interesting for machine learning because each recipe contains multiple elements, each of which provides additional information about the recipe. Current deep learning models excel at learning the relationship between one element and a single other element (e.g., image-to-text, text-to-image, text-to-summarized-text). This dataset has been used for several deep learning projects so far:
 
+* [Deep Learning for Emojis with VS Code Tools for AI](https://blogs.technet.microsoft.com/machinelearning/2018/04/24/deep-learning-for-emojis-with-vs-code-tools-for-ai/) [Microsoft Machine Learning Blog]: recipe prediction using word and emoji embeddings
 * [Recipe summarization](https://github.com/rtlee9/recipe-summarization): generate a title for a recipe given the corresponding ingredients and instructions
 * [Food GAN](https://github.com/rtlee9/food-GAN): generate novel food images using Generative Adversarial Networks
 
