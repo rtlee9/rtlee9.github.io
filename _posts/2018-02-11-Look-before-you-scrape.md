@@ -96,7 +96,7 @@ def get_carmax_page_api():
     return response.json()['Results']
 {% endhighlight %}
 
-Note this code is much more concise than before, as the response is already structured for us and we no longer have to identify specific data points from a large blob of semi-structured text. On top of this, we are no longer asking the server to send us data we aren't going to use so the response time is significantly faster, coming at a mere 0.2 seconds:
+Note this code is much more concise than before, as the response is already structured for us and we no longer have to identify specific data points from a large blob of semi-structured text. On top of this, we are no longer asking the server to send us data we aren't going to use so the response time is significantly faster, clocking in at a mere 0.2 seconds:
 
 <iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~ryantlee9/6.embed?autosize=true&link=false&modebar=false&logo=false"></iframe>
 
