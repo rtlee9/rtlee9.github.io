@@ -116,7 +116,7 @@ These examples illustrate that the model appears to be able to learn a lot about
 Company vectors can also be used to support various machine learning tasks relating to company-centric analytics by serving as features for other models. They may be useful, for example, in predicting financial performance in combination with other features.
 
 ## Comparatory
-In order to more easily explore the learned company representations, I built [comparatory.io](https://www.comparatory.io/), a small Python Flask app. It currently provides two functions:
+In order to more easily explore the learned company representations, I built [comparatory.co](https://www.comparatory.co/), a small Python Flask app. It currently provides two functions:
 
 1. __Search:__ enter a company name and it will identify the five most similar companies based on company vector distance
 1. __Explore:__ identify clusters of similar companies with an interactive low dimensional plot of reduced company vectors
