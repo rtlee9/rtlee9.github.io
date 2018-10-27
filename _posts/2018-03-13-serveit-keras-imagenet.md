@@ -8,7 +8,7 @@ tags: [machine learning, computer vision, convolutional neural network, API, inf
 
 [ServeIt](https://github.com/rtlee9/serveit) is an open source library that lets you easily serve model predictions and supplementary information from a RESTful API on any domain using your favorite Python ML library. This post illustrates the process of deploying a pre-trained ImageNet classifier with ServeIt to a new API. The classifier accepts an image URL as a parameter in a POST request and responds with the top predicted classes for that image.
 
-You can interact with a live DenseNet121 demo server at `https://imagenet-keras.ryanlee.io/predictions` (source code and request examples can be found [here](https://github.com/rtlee9/serveit-demo-imagenet-keras/)) or follow along below to start serving your own classifier.
+You can interact with a live DenseNet121 demo server at `https://imagenet-keras.ryanlee.site/predictions` (source code and request examples can be found [here](https://github.com/rtlee9/serveit-demo-imagenet-keras/)) or follow along below to start serving your own classifier.
 
 ## Pre-trained DenseNet121 serving using ServeIt
 
