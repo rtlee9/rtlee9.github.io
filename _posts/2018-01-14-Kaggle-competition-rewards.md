@@ -22,13 +22,10 @@ import pandas as pd
 import numpy as np
 import sqlite3
 
-# plotly
-import plotly.offline as py
-py.init_notebook_mode(connected=True)
-import plotly.graph_objs as go
-
 # config
-path_data = 'data'  # make sure sqlite db is saved to the `data` directory first
+# make sure sqlite db is saved to the `data` directory first
+# db can be downloaded from https://www.kaggle.com/kaggle/meta-kaggle/data
+path_data = 'data'
 con = sqlite3.connect(path.join(path_data, 'database.sqlite'))
 {% endhighlight %}
 
