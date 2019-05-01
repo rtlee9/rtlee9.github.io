@@ -25,7 +25,7 @@ A typical recipe looks something like this:
   * 1 tablespoon chopped cilantro
   * 1 clove garlic, minced
 * __Instructions:__ In a large bowl place the scooped avocado pulp and lime juice, toss to coat. Drain, and reserve the lime juice, after all of the avocados have been coated. Using a potato masher add the salt, cumin, and cayenne and mash. Then, fold in the onions, tomatoes, cilantro, and garlic. Add 1 tablespoon of the reserved lime juice. Let sit at room temperature for 1 hour and then serve.
-* __Source:__ [http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe](http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe)
+* __Source[^2]:__ [http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe](http://www.foodnetwork.com/recipes/alton-brown/guacamole-recipe)
 * __Picture:__
 
 <img src="/img/guacamole.jpeg" style="width: 300px;"/>
@@ -84,3 +84,4 @@ However, these models don't make full use of a recipe's entire information set a
 
 ### Footnotes
 [^1]: Roughly 70,000 of these recipes have images associated with them. Comments and ratings data are not included.
+[^2]: I've hashed all source URLs in hosted datasets I've made available. The original source URLs can be downloaded by re-running the scrapers, as documented in the project documentation.
