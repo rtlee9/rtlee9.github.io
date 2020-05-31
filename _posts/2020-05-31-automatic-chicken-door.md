@@ -89,4 +89,4 @@ I then built a small shelf from some pine scrap wood by cutting it to size on my
 ![Large plywood servo block](/img/big_servo_block.jpg)
 
 Finally, I connected the servo control arm to the servo horn on one end and to the chicken wire on the coop door on the other end. Et Voilà:
-![Demo open close door button](/img/coop_door_open_close_demp.gif)
+![Demo open close door button](/img/coop_door_open_close_demo.gif)
