@@ -1,9 +1,6 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-gem 'execjs'
-gem 'therubyracer'
-gem 'jekyll'
-gem 'jekyll-paginate'
-gem 'jekyll-seo-tag'
-gem 'jekyll-sitemap'
-gem 'nokogiri'
+source "https://rubygems.org"
+
+gemspec
+
