@@ -6,6 +6,7 @@ _site
 public/
 vendor/
 .jekyll-metadata
+.bundle
 
 # general
 .DS_Store
