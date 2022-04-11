@@ -44,7 +44,7 @@ However, these models don't make full use of a recipe's entire information set a
 ### Learn more
 <ul class="list-inline dataset" style="margin: 20px 0 40px 0;">
 <li>
-<a href="https://storage.googleapis.com/recipe-box/recipes_raw.zip" download>
+<a href="/recipes_raw.zip" download>
   <button type="button" class="btn btn-primary btn-lg">
     <i class="fa fa-lg fa-download"></i>
       Download recipes
