@@ -1,5 +1,5 @@
 ---
-title: "Building a DIY water tank level sensor"
+title: "Building a water tank level monitor"
 subtitle: "4-20mA sensor, Arduino nano, MQTT messaging, and monitoring dashboard"
 layout: post
 bigimg: /img/water.jpg
