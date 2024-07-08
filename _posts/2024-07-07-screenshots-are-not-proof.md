@@ -1,11 +1,9 @@
 ---
 title: Screenshots are not proof of anything
-subtitle: Is Roaring Kitty full of it?
+subtitle: A gentle reminder that screenshots are so easy to spoof that they mean absolutely nothing
 layout: post
 gradient: canvas
 tags: [evidence, web]
----
-
 ---
 
 Billions of dollars have been made and lost in recent months based on screenshots of Roaring Kitty's account balances [^1]. These screenshots were widely circulated and discussed, yet they could have easily been doctored.
