@@ -6,7 +6,7 @@ gradient: canvas
 tags: [evidence, web]
 ---
 
-Billions of dollars have been made and lost in recent months based on screenshots of Roaring Kitty's account balances [^1]. These screenshots were widely circulated and discussed, yet they could have easily been doctored.
+Billions of dollars have been made and lost in recent months based on screenshots of Roaring Kitty's account balances[^1]. These screenshots were widely circulated and discussed, yet they could have easily been doctored.
 
 Creating a fake screenshot is incredibly simple. With a standard web browser, anyone can alter numbers and names to present false information. Below, I show how easily anyone can spoof a financial account to display an absurdly large balance (or anything else they please).
 
